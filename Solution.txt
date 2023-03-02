@@ -1,0 +1,5 @@
+git stash apply command applies the changes stored in the stash to the working directory, but keeps the stash intact. It leaves the stash entry in the stash list and you can apply it again later if you need to.
+
+
+
+git stash pop command, on the other hand, applies the changes stored in the stash to the working directory and removes the stash entry from the stash list. This means that you cannot apply the same stash again unless you create a new one.
