@@ -1,0 +1,4 @@
+[A[D[B
+git stash apply applies the changes in the most recent stash to your working directory, but it leaves the stash in the stash list. This means that you can apply the same stash multiple times, or apply different stashes in a specific order.
+
+git stash pop also applies the changes in the most recent stash to your working directory, but it removes the stash from the stash list. This means that you can only apply a stash once with git stash pop
