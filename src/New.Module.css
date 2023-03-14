@@ -1,12 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background-color: orange;
+body {
+  background-color: #ccc;
 }
-.container{
+.container {
   border: 3px solid rgb(12, 12, 174);
   width: 25%;
   margin: auto;
@@ -15,62 +15,68 @@ body{
   background-color: #333;
   border-radius: 20px;
 }
-p{
+p {
   font-size: 16px;
   color: #fff;
-
 }
-.input-part{
+.input-part {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
-h1{
-  color:#fff;
+h1 {
+  color: #fff;
   text-align: center;
   margin-bottom: 1rem;
 }
-input{
+input {
   padding: 10px;
   width: 75%;
   outline: none;
   font-size: 16px;
 }
-.input-part > button{
+.input-part > button {
   padding: 8.5px 20px;
   font-size: 18px;
   outline: none;
   cursor: pointer;
-  
 }
 
-.Single-data{
+.Single-data {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #fff;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
   padding: 5px 10px;
   border-radius: 5px;
 }
-.Single-data> div{
+.Single-data > div {
   width: 48%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.Single-data> div > button{
+.Single-data > div > button {
   padding: 7px;
   cursor: pointer;
-  background-color: blue;
+  /* background-color: blue; */
   color: #fff;
   border: none;
   outline: none;
   border-radius: 5px;
 }
-.icon{
+.icon {
   font-size: 29px;
   cursor: pointer;
   color: red;
+}
+
+.addBtn {
+  background-color: blue;
+}
+
+.deleteBtn {
+  background-color: red;
 }
