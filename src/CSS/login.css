@@ -1,0 +1,24 @@
+.checkBox {
+    display: flex;
+    align-items: center;
+}
+
+.rem-for {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.label {
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+.loginInput {
+    width: 450px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
