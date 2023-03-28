@@ -1,0 +1,47 @@
+.Info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    font-family: serif;
+    background-color: rgb(217, 236, 45)
+  }
+  
+  .Info h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+  }
+  
+  
+  .Info img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+     margin-left: -200px;
+  }
+  .Info h5 {
+    margin-top: 0;
+    margin-top: 380px;
+    margin-left: -190px;
+    flex-direction: column;
+  }
+  .Info p {
+    background-color: rgb(197, 111, 197);
+    margin-left: 10%;
+    justify-content: space-between;
+    font-size: 24px;
+    text-align: justify;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-right: 50px;
+  }
+  
+  
+  
+  
+  
+  
+  
+   
