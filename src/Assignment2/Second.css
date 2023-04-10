@@ -1,0 +1,23 @@
+body{
+    background-color: aqua;
+}
+h1 {
+    font-size: 24px;
+    color: rgb(24, 215, 62);
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
