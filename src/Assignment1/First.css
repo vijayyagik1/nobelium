@@ -1,0 +1,36 @@
+body{
+    background-color:wheat;
+}
+.table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+  }
+  
+  .th,
+  .td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .th {
+
+    background-color: red;
+    color: blue;
+  }
+  
+  .tr:nth-child(even) {
+    background-color: #c61490;
+  }
+  
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #0bd272;
+    color: rgb(181, 218, 14);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
