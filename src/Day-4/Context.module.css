@@ -1,0 +1,68 @@
+body{
+    background-color: aqua;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}.main{
+  
+ 
+    
+}
+.userDetails{
+    border: 2px solid rgb(143, 216, 24);
+    border-radius: 10px;
+    
+    width: 48%;
+   text-align: left;
+    transform: translate(650px,-4700px);
+   
+    padding-left: 20px;
+   height: 25vh;
+   background-color: rgb(226, 91, 13);
+}
+.first{
+   
+    width: 45%;
+    background-color: aqua;
+   
+}
+h2{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+h3{
+    text-align: center;
+    color: lightgreen;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.buttun{
+   
+    width: 500px;
+    margin: 5px;
+    border-radius: 10px;
+    height: 6vh;
+    color: black;
+    border: 2px solid sandybrown;
+    background-color: lightseagreen;
+    color: rgb(232, 9, 9);
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.tdd{
+   
+}
+
+.trr{
+    border: 1px solid , gold;
+    margin-left: 30px;
+}
