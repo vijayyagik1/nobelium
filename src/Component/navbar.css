@@ -1,0 +1,26 @@
+body{
+    background-color: aqua;
+}
+.nab-conatainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: lightpink;
+    height: 20px;
+    align-items: center;
+}
+
+
+
+.nab-conatainer ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    color: white;
+
+}
+
+.link-tag{
+    color: white;
+    text-decoration: none;
+}
