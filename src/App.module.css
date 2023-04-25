@@ -1,0 +1,55 @@
+body{
+    background-color:royalblue
+}
+
+.root {
+ 
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 1000px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 16px;
+}
+
+th {
+  background-color: #333;
+
+  color:blue;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+  color:lightcoral;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+  color: green;
+  border: radius 15px; ;
+ 
+}
