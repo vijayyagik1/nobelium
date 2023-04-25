@@ -8,7 +8,7 @@ const Button = ({ value, dispatch, increaseBtnCount, name }) => {
           display: "flex",
           marginLeft: "-10px",
           color: "red",
-          backgroundColor: "yellow",
+          backgroundColor: "Cyan",
           padding: "0.5rem",
           boxSizing: "border-box",
         }}
