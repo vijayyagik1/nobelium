@@ -12,21 +12,17 @@
     gap: 10px;
     
 }
-
 .heading{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .heading :nth-child(1){
     height: 7rem;
     width: 7rem;
     /* color: rgb(95, 141, 229); */
     color: #00acee;
 }
-
-
 .apple{
     /* border: 1px solid black; */
     display: flex;
@@ -34,7 +30,6 @@
     gap:10px;
     width: 80%;
 }
-
 .apple > Button {
     border-radius: 3rem;
     color: black;
@@ -56,30 +51,8 @@ gap: 10px;
     top: 0.15rem;
     
 }
-
-.login{
-
+.createAccount{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 80%;
 }
- .login > Button {
-    border-radius: 3rem;
-
- }
- .login :nth-child(2){
-    background-color: black;
-    color: white;
-
- }
-
- .switch{
-
- }
-
- .switch :nth-child(2) {
-    color: blue;
-    cursor: pointer;
-
- }
