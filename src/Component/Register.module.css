@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-   
-    width: 40%;
+    /* justify-content: center; */
+   box-sizing: border-box;
+    width:37.5rem;
     min-height: 40rem;
     position: relative;
-    top: 5rem;
+    top: 4rem;
     left: 30%;
-    gap: 10px;
+    gap: 20px;
     background-color: white;
     border-radius: 10px;
     
@@ -19,6 +19,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: sticky;
+    top: 6rem;
 }
 .heading :nth-child(1){
     height: 2rem;
@@ -26,11 +28,18 @@
     /* color: rgb(95, 141, 229); */
     color: #00acee;
 }
+
+.heading >h1{
+    font-family: inherit;
+}
+
 .apple{
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    gap:10px;
+    align-items: center;
+
+    gap:20px;
     width: 80%;
 }
 .apple > Button {
@@ -38,6 +47,7 @@
     color: black;
     font-weight: bold;
     /* background-color: black; */
+    width: 18.75rem;
 }
 .apple :nth-child(1){
     font-weight: unset;
@@ -49,7 +59,7 @@ gap: 10px;
 
 }
 .sectionDivider :nth-child(odd)  {
-    width: 10rem;
+    width: 8rem;
     position: relative;
     top: 0.15rem;
     
@@ -57,7 +67,12 @@ gap: 10px;
 .createAccount{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    font-family: TwitterChirp",-apple-system,BlinkMacSystemFont,Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width: 18.75rem;
+    font-weight: 400;
 }
 
 .Register{
@@ -68,6 +83,7 @@ gap: 10px;
     width: 80%;
 }
  .Register > Button {
+    margin-top: 2rem;
     border-radius: 3rem;
 
  }
@@ -84,6 +100,10 @@ gap: 10px;
     height: 100%;
  }
 
+ .Calender :nth-child(1){
+    width: 50%;
+ }
+
  .switch :nth-child(2) {
     color: blue;
     cursor: pointer;
@@ -93,9 +113,9 @@ gap: 10px;
  .Inside{
     display: flex;
     flex-direction: column;
-    /* border: 1px solid red; */
     justify-content: center;
     align-items: center;
+    gap: 10px;
  }
 
  .Inside > Button{
@@ -103,4 +123,19 @@ gap: 10px;
     font-weight: bold;
     background-color: black;
     width: 80%;
+ }
+
+ .Create{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+ }
+
+ .Create>Button{
+    border-radius: 3rem;
+    font-weight: bold;
+    background-color: black;
+    width: 18.75rem;
  }
