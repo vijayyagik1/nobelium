@@ -21,7 +21,7 @@ const Login = () => {
       <div className={style.apple}>
         <Button variant="outlined" startIcon={<FcGoogle />}>
           Sign in with Google
-        </Button>
+        </Button >
         <Button variant="outlined"   startIcon={<BsApple />}>
           Sign in with Apple 
         </Button>
@@ -34,12 +34,19 @@ const Login = () => {
 
       <form className={style.login}>
         <TextField
+          
           id="outlined-basic"
           label="Phone, Email Or UserName"
           variant="outlined"
         />
+        <TextField
+          type='password'
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+        />
 
-        <Button variant="contained">Next </Button>
+        <Button sx={{backgroundColor:'black', fontWeight:'bold'}} variant="contained">Log In </Button>
         <Button variant="outlined">Forgot Password? </Button>
       </form>
       <div className={style.switch}>
