@@ -19,7 +19,6 @@ const Login = () => {
         <FaTwitter  />
        
       </div>
-      
       <div className={style.apple}>
       <span style={{fontWeight: "bolder"}}>Sign in to Twitter</span>
         <Button variant="outlined" startIcon={<FcGoogle />}>
@@ -36,6 +35,7 @@ const Login = () => {
         <span>or</span>
         <div>
           <hr style={{borderTop:"gray"}} />
+
         </div>
       </div>
 
@@ -63,6 +63,7 @@ const Login = () => {
       </form>
       <div className={style.switch}>
         <span>Don't have an account?</span> &nbsp;
+
         <span onClick={() => navigate("/signup")}>Sign Up</span>
       </div>
     </div>
