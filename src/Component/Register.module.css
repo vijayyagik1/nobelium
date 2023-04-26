@@ -2,33 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-   
-    width: 40%;
+    width: 45%;
     min-height: 40rem;
     position: relative;
     top: 5rem;
-    left: 30%;
+    left: 28%;
     gap: 10px;
-    background-color: white;
     border-radius: 10px;
-    
+    background-color: white;
 }
-
 .heading{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .heading :nth-child(1){
     height: 2rem;
     width: 2rem;
     /* color: rgb(95, 141, 229); */
     color: #00acee;
 }
-
-
 .apple{
     /* border: 1px solid black; */
     display: flex;
@@ -36,7 +29,6 @@
     gap:10px;
     width: 80%;
 }
-
 .apple > Button {
     border-radius: 3rem;
     color: black;
@@ -58,26 +50,8 @@ gap: 10px;
     top: 0.15rem;
     
 }
-
-.login{
-
+.createAccount{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 80%;
 }
- .login > Button {
-    border-radius: 3rem;
-
- }
-
-
- .switch{
-
- }
-
- .switch :nth-child(2) {
-    color: blue;
-    cursor: pointer;
-
- }
