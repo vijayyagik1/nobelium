@@ -6,7 +6,7 @@ import Register from "./Component/Register";
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/signIn" element={<Login/>}></Route>
