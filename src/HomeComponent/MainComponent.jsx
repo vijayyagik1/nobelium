@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./Main.module.css";
 import { userData, postIcons } from "../Data/AtomData/data";
 import { Button } from "@mui/material";
-
-import { useRecoilState } from 'recoil'
 import { FaRegComment } from 'react-icons/fa'
 import { MdSync, MdPoll } from 'react-icons/md'
 import {FiShare} from 'react-icons/fi'
 import {BsHeart} from 'react-icons/bs'
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function MainComponent() {
     const [likes, setLikes] = useState(0)
+   
     function handleLikeClick(id) {
         setLikes(likes + 1)
         const currentUser = userData.find((ele)=>ele.id===id)
@@ -34,7 +34,7 @@ export default function MainComponent() {
                    alt="user img"
                  />
                  <div>
-                           <h5>{user.first_name}&nbsp;{user.email}</h5>
+                           <h5>{user.first_name}&nbsp;<span>{user.email}</span></h5>
                    <br />
                    <span>{user.post_text}</span>
                  </div>

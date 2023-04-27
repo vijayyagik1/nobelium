@@ -5,12 +5,20 @@ import { useRecoilState } from "recoil";
 import { isShowing } from "../Data/AtomData/Atom";
 import Styles from "./Home.module.css";
 import MainComponent from '../HomeComponent/MainComponent'
-import Login from './Login'
 import { isUserLoggedIn } from '../Data/AtomData/Atom'
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+
 
 const Home = () => {
  const [isShow, setIsShow] = useRecoilState(isShowing);
-const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(isLoggedIn=== false){
+    navigate('/signin')
+    }
+  },[])
   let Right = [];
 
   if (isShow == true) {
@@ -294,8 +302,10 @@ const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
 
   return (
 
-    <div>
+    <div className={Styles.mainWrapper}>
       I am Home
+      <div className={Styles.container}>
+      <MainComponent/>
       <div className={Styles.RightMain}>
         <h3>What's Happening</h3>
         {Right.map((ele) => (
@@ -303,6 +313,7 @@ const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
         ))}
         <button onClick={()=> setIsShow(!isShow)}>Show More</button>
       </div>
+     </div>
 
 
     </div>

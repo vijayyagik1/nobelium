@@ -4,3 +4,6 @@
     background-color:rgb(165, 164, 164);
     margin-left: 70% ;
 }
+.container{
+    display: flex;
+}

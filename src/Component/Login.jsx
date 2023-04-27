@@ -38,6 +38,7 @@ const Login = () => {
     }
     else if (currentUser.password === password) {
       swal("Login Successful!", "You have Successfully logged In!", "success");
+      setIsLogIn(true)
       navigate("/");
     } 
   };
@@ -106,7 +107,7 @@ const Login = () => {
       <div className={style.switch}>
         <span>Don't Have an Account?</span> &nbsp;
 
-        <span onClick={handleLogin}>Sign Up</span>
+        <span onClick={()=>navigate('/signup')}>Sign Up</span>
       </div>
     </div>
     </div>
