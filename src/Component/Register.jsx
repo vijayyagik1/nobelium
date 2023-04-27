@@ -11,6 +11,8 @@ const Register = () => {
   const [isInput, setIsInput] = useState(false);
   const navigate = useNavigate();
 
+  const [nameError, setNameError]=useState(false)
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -120,7 +122,7 @@ const Register = () => {
       alert("registeration success");
       users.push(data);
       localStorage.setItem("users", JSON.stringify(users));
-      navigate("/")
+      navigate("/signIn");
     }
   }
 
