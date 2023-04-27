@@ -7,7 +7,7 @@ import style from "./Login.module.css";
 import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
-
+import {RxCross2} from 'react-icons/rx'
 const Login = () => {
   const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
   const [email, setEmail] = useState("");
@@ -32,10 +32,14 @@ const Login = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.heading}>
-        <FaTwitter />
-        <h1>Sign in to Twitter</h1>
+
+        <RxCross2 size={20}  />
+        <FaTwitter  />
+       
+
       </div>
       <div className={style.apple}>
+      <span style={{fontWeight: "bolder"}}>Sign in to Twitter</span>
         <Button variant="outlined" startIcon={<FcGoogle />}>
           Sign in with Google
         </Button>
@@ -45,18 +49,23 @@ const Login = () => {
       </div>
       <div className={style.sectionDivider}>
         <div>
-          <hr />
+
+          <hr style={{borderTop: "1px gray"}} />
         </div>
-        <b>or</b>
+        <span>or</span>
         <div>
-          <hr />
+          <hr style={{borderTop:"gray"}} />
+
+
         </div>
       </div>
 
       <form className={style.login}>
         <TextField
           id="outlined-basic"
-          label="Phone, email Or username"
+
+          label="Phone, email address, or username"
+
           variant="outlined"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -69,6 +78,7 @@ const Login = () => {
         />
 
         <Button
+
           onClick={handleLogin}
           sx={{ backgroundColor: "black", fontWeight: "bold" }}
           variant="contained"
@@ -79,6 +89,7 @@ const Login = () => {
       </form>
       <div className={style.switch}>
         <span>Don't Have an Account?</span> &nbsp;
+
         <span onClick={() => navigate("/signup")}>Sign Up</span>
       </div>
     </div>
