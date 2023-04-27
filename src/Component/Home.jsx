@@ -1,12 +1,16 @@
+
 import React from "react";
 import RightSideBar from "../HomeComponent/RightSideBar";
 import { useRecoilState } from "recoil";
 import { isShowing } from "../Data/AtomData/Atom";
 import Styles from "./Home.module.css";
+import MainComponent from '../HomeComponent/MainComponent'
+import Login from './Login'
+import { isUserLoggedIn } from '../Data/AtomData/Atom'
 
 const Home = () => {
-  const [isShow, setIsShow] = useRecoilState(isShowing);
-
+ const [isShow, setIsShow] = useRecoilState(isShowing);
+const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
   let Right = [];
 
   if (isShow == true) {
@@ -287,7 +291,9 @@ const Home = () => {
     ];
   }
 
+
   return (
+
     <div>
       I am Home
       <div className={Styles.RightMain}>
@@ -297,6 +303,7 @@ const Home = () => {
         ))}
         <button onClick={()=> setIsShow(!isShow)}>Show More</button>
       </div>
+
 
     </div>
   );

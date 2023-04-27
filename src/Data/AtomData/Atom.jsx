@@ -6,7 +6,9 @@ export const isUserLoggedIn = atom({
 })
 
 
+
 export const isShowing = atom ({
     key: 'Show',
     default: false
+
 })

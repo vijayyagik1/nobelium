@@ -17,6 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+
   function getData() {
     const users = localStorage.getItem("users");
     if (users) {
@@ -41,6 +42,7 @@ const Login = () => {
     } 
   };
   
+
 
   return (
     <div className={style.main}>
@@ -104,7 +106,7 @@ const Login = () => {
       <div className={style.switch}>
         <span>Don't Have an Account?</span> &nbsp;
 
-        <span onClick={() => navigate("/signup")}>Sign Up</span>
+        <span onClick={handleLogin}>Sign Up</span>
       </div>
     </div>
     </div>
