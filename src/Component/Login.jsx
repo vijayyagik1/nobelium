@@ -11,7 +11,10 @@ import {RxCross2} from 'react-icons/rx'
 const Login = () => {
   const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
-
+  function handleLogin() {
+    setIsLogIn(true)
+     navigate("/signup")
+   }
   return (
     <div className={style.mainContainer}>
       <div className={style.heading}>
@@ -64,7 +67,7 @@ const Login = () => {
       <div className={style.switch}>
         <span>Don't have an account?</span> &nbsp;
 
-        <span onClick={() => navigate("/signup")}>Sign Up</span>
+        <span onClick={handleLogin}>Sign Up</span>
       </div>
     </div>
   );
