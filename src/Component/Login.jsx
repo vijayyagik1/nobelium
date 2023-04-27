@@ -15,9 +15,20 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const userData = [];
-  // const userData = localStorage.getItem(JSON.parse('user'))
+  function getData() {
+    const users = localStorage.getItem("users");
+    if (users) {
+      try {
+        return JSON.parse(users);
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  }
+
   const handleLogin = () => {
+    const userData = getData()
     const currentUser = userData.find((data) => data.email === email);
     if (currentUser.password === password) {
       alert("Login successful");
@@ -26,6 +37,7 @@ const Login = () => {
       alert("User Not Found");
     }
   };
+  
 
   console.log(email, password);
 
