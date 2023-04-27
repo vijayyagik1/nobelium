@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { isUserLoggedIn } from "../Data/AtomData/Atom";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
@@ -10,14 +10,33 @@ import { BsApple } from "react-icons/bs";
 import {RxCross2} from 'react-icons/rx'
 const Login = () => {
   const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+
+  const userData = [];
+  // const userData = localStorage.getItem(JSON.parse('user'))
+  const handleLogin = () => {
+    const currentUser = userData.find((data) => data.email === email);
+    if (currentUser.password === password) {
+      alert("Login successful");
+      navigate("/");
+    } else if (!currentUser) {
+      alert("User Not Found");
+    }
+  };
+
+  console.log(email, password);
 
   return (
     <div className={style.mainContainer}>
       <div className={style.heading}>
+
         <RxCross2 size={20}  />
         <FaTwitter  />
        
+
       </div>
       <div className={style.apple}>
       <span style={{fontWeight: "bolder"}}>Sign in to Twitter</span>
@@ -30,11 +49,13 @@ const Login = () => {
       </div>
       <div className={style.sectionDivider}>
         <div>
+
           <hr style={{borderTop: "1px gray"}} />
         </div>
         <span>or</span>
         <div>
           <hr style={{borderTop:"gray"}} />
+
 
         </div>
       </div>
@@ -42,27 +63,32 @@ const Login = () => {
       <form className={style.login}>
         <TextField
           id="outlined-basic"
+
           label="Phone, email address, or username"
+
           variant="outlined"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           type="password"
           id="outlined-basic"
           label="Password"
           variant="outlined"
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button
+
+          onClick={handleLogin}
           sx={{ backgroundColor: "black", fontWeight: "bold" }}
           variant="contained"
         >
-          Log In
+          Log In{" "}
         </Button>
-        <Button variant="outlined"
-       >Forgot Password? </Button>
+        <Button variant="outlined">Forgot Password? </Button>
       </form>
       <div className={style.switch}>
-        <span>Don't have an account?</span> &nbsp;
+        <span>Don't Have an Account?</span> &nbsp;
 
         <span onClick={() => navigate("/signup")}>Sign Up</span>
       </div>
