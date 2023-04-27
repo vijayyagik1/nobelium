@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { isUserLoggedIn } from "../Data/AtomData/Atom";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
@@ -7,20 +7,52 @@ import style from "./Login.module.css";
 import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
-import {RxCross2} from 'react-icons/rx'
+import {RxCross2} from 'react-icons/rx';
+import swal from 'sweetalert';
+
 const Login = () => {
   const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
-  function handleLogin() {
-    setIsLogIn(true)
-     navigate("/signup")
-   }
+
+
+  function getData() {
+    const users = localStorage.getItem("users");
+    if (users) {
+      try {
+        return JSON.parse(users);
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  const handleLogin = () => {
+    const userData = getData()
+    const currentUser = userData.find((data) => data.email === email);
+    if (!currentUser) {
+      alert("User Not Found");
+    }
+    else if (currentUser.password === password) {
+      swal("Login Successful!", "You have Successfully logged In!", "success");
+      navigate("/");
+    } 
+  };
+  
+
+
   return (
+    <div className={style.main}>
     <div className={style.mainContainer}>
       <div className={style.heading}>
+
         <RxCross2 size={20}  />
         <FaTwitter  />
        
+
       </div>
       <div className={style.apple}>
       <span style={{fontWeight: "bolder"}}>Sign in to Twitter</span>
@@ -33,11 +65,13 @@ const Login = () => {
       </div>
       <div className={style.sectionDivider}>
         <div>
+
           <hr style={{borderTop: "1px gray"}} />
         </div>
         <span>or</span>
         <div>
           <hr style={{borderTop:"gray"}} />
+
 
         </div>
       </div>
@@ -45,30 +79,36 @@ const Login = () => {
       <form className={style.login}>
         <TextField
           id="outlined-basic"
+
           label="Phone, email address, or username"
+
           variant="outlined"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           type="password"
           id="outlined-basic"
           label="Password"
           variant="outlined"
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button
+
+          onClick={handleLogin}
           sx={{ backgroundColor: "black", fontWeight: "bold" }}
           variant="contained"
         >
-          Log In
+          Log In{" "}
         </Button>
-        <Button variant="outlined"
-       >Forgot Password? </Button>
+        <Button variant="outlined">Forgot Password? </Button>
       </form>
       <div className={style.switch}>
-        <span>Don't have an account?</span> &nbsp;
+        <span>Don't Have an Account?</span> &nbsp;
 
         <span onClick={handleLogin}>Sign Up</span>
       </div>
+    </div>
     </div>
   );
 };
