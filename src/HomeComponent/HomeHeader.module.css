@@ -1,0 +1,55 @@
+.mainContainer{
+    min-width: 50%;
+    /* border: 1px solid; */
+    /* margin: 10px; */
+    
+}
+.wrapperDiv{
+    /* margin: 10px; */
+    /* border: 1px solid rebeccapurple; */
+}
+.headName{
+    /* margin: 10px; */
+    /* border: 1px solid yellow; */
+    
+    
+}
+
+.toggleBtn{
+    /* margin: 10px; */
+    /* border: 1px solid pink; */
+    min-width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+.toggleBtn > div{
+    cursor: pointer;
+    display: block;
+    font-size: larger;
+    font-weight: 600;
+    /* border-bottom: 0.3rem solid ; */
+    /* border: 1px solid; */
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.toggleBtn p {
+    border-bottom: 0.3rem solid #00acee;
+    /* width: 25%; */
+    text-align: center;
+    /* padding-bottom: 0.9rem; */
+    padding: 16px 16px;
+    /* border: 1px solid; */
+    
+}
+.toggleBtn >div:hover{
+    background-color: whitesmoke;
+}
+

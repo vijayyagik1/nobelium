@@ -1,26 +1,25 @@
-
-import LeftSideBar from '../HomeComponent/LeftSideBar'
+import LeftSideBar from "../HomeComponent/LeftSideBar";
 import React from "react";
 import RightSideBar from "../HomeComponent/RightSideBar";
 import { useRecoilState } from "recoil";
 import { isShowing } from "../Data/AtomData/Atom";
 import Styles from "./Home.module.css";
-import MainComponent from '../HomeComponent/MainComponent'
-import { isUserLoggedIn } from '../Data/AtomData/Atom'
+import MainComponent from "../HomeComponent/MainComponent";
+import { isUserLoggedIn } from "../Data/AtomData/Atom";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
-import Twittes from "./HomeComponent/Twittes";
-
+import { useEffect } from "react";
+import CreateTweet from "../HomeComponent/CreateTweet";
+import HomeHeader from "../HomeComponent/HomeHeader";
 
 const Home = () => {
- const [isShow, setIsShow] = useRecoilState(isShowing);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn)
-  const navigate = useNavigate()
-  useEffect(() => {
-    if(isLoggedIn=== false){
-    navigate('/signin')
-    }
-  },[])
+  const [isShow, setIsShow] = useRecoilState(isShowing);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (isLoggedIn === false) {
+  //     navigate("/signin");
+  //   }
+  // }, []);
   let Right = [];
 
   if (isShow == true) {
@@ -301,31 +300,21 @@ const Home = () => {
     ];
   }
 
-
   return (
-
-    <div>
-
-      
-      
-
     <div className={Styles.mainWrapper}>
-    
-      
       <div className={Styles.container}>
-      <LeftSideBar/>
-      
-      <Twittes />
-      <MainComponent/>
-      <div className={Styles.RightMain}>
-        <h3>What's Happening</h3>
-        {Right.map((ele) => (
-          <RightSideBar Message={ele["Title "]} content={ele.Content} />
-        ))}
-        <button onClick={()=> setIsShow(!isShow)}>Show More</button>
+        <LeftSideBar />
+        <HomeHeader />
+        <CreateTweet/>
+        <MainComponent/>
+        <div className={Styles.RightMain}>
+          <h3>What's Happening</h3>
+          {Right.map((ele) => (
+            <RightSideBar Message={ele["Title "]} content={ele.Content} />
+          ))}
+          <button onClick={() => setIsShow(!isShow)}>Show More</button>
+        </div>
       </div>
-     </div>
-
     </div>
   );
 };
