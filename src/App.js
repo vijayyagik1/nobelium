@@ -3,6 +3,9 @@ import './App.css';
 import Home from "./Component/Home";
 import Login from "./Component/Login";
 import Register from "./Component/Register";
+import Twittes from "./HomeComponent/Twittes";
+
+
 
 function App() {
   return (
@@ -12,6 +15,7 @@ function App() {
         <Route path="/signIn" element={<Login/>}></Route>
         <Route path="/signUp" element={<Register/>}></Route>
       </Routes>
+      <Twittes />
     </div>
   );
 }
