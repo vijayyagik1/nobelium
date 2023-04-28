@@ -29,12 +29,17 @@ const Login = () => {
 
   const handleLogin = () => {
     const userData = getData()
+    if(!email||!password){
+      alert("please Fill Data")
+      return;
+    }
     const currentUser = userData.find((data) => data.email === email);
-    if (currentUser.password === password) {
+    if (!currentUser) {
+      alert("User Not Found");
+
+    } else if (currentUser.password === password) {
       alert("Login successful");
       navigate("/");
-    } else if (!currentUser) {
-      alert("User Not Found");
     }
   };
   

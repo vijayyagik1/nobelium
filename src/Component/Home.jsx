@@ -1,9 +1,11 @@
 import React from 'react'
+import LeftSideBar from '../HomeComponent/LeftSideBar'
 
 const Home = () => {
   return (
     <div>
-      I am Home
+      
+      <LeftSideBar/>
     </div>
   )
 }
