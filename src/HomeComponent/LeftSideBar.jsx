@@ -53,9 +53,9 @@ export default function LeftSideBar() {
         <FaTwitter
           sx={{
             fontSize: "2.8rem",
-            padding: "0.1rem",
-            paddingLeft: "1.5rem",
-            paddingRight: "1.5rem",
+            // padding: "0.1rem",
+            // paddingLeft: "1.5rem",
+            // paddingRight: "1.5rem",
           }}
           className={style.mainIcon}
         />

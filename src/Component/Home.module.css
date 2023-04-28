@@ -2,8 +2,17 @@
     border: 1px solid;
     width: 23%;
     background-color:rgb(165, 164, 164);
-    margin-left: 70% ;
+    margin-left: 20% ;
 }
 .container{
     display: flex;
+}
+.leftDiv{
+    position: relative;
+    left: 20%;
+}
+.centerDiv{
+    position: relative;
+    left: 10%;
+    border: 1px darkgray;
 }
