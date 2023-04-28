@@ -127,6 +127,7 @@ const Register = () => {
   }
 
   return (
+    <div className={styles.main}>
     <div className={styles.mainContainer}>
       <div className={styles.heading}>
         <FaTwitter />
@@ -219,6 +220,7 @@ const Register = () => {
         <span>Already Have an Account?</span> &nbsp;
         <span onClick={() => navigate("/signin")}>Sign In</span>
       </div>
+    </div>
     </div>
   );
 };
