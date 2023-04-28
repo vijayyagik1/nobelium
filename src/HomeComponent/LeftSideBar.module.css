@@ -1,0 +1,90 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid; */
+    align-items: flex-end;
+    width: 25%;
+    justify-content: space-between;
+    height: 100vh;
+    /* background-color: black; */
+}
+.sideBarBtnGroup{
+    /* border: 1px solid wheat; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 2rem;
+    /* gap: 10px; */
+}
+.mainIcon{
+   /* height: 10%; 
+   width: 5rem; */
+
+    color: #00acee;
+    
+}
+.sideBarBtn{
+    /* height: 3.59rem */
+    color: black;
+
+    
+}
+.sideBarBtn:hover{
+    /* border: 1rem solid; */
+    /* color: #00acee; */
+    color: black;
+    background-color: rgb(255, 107, 107);
+    
+
+}
+
+.tweetBtn{
+ font-weight: bolder;
+
+}
+
+
+.userDiv{
+    border: 1px solid wheat;
+
+    min-height: 4rem;       
+    border: 1px solid;
+    width: 18rem ;
+ display: flex;
+ flex-direction: row;
+ border-radius: 3rem;
+ justify-content: center;
+ align-items: center;
+ margin-top: 3rem;
+ margin-bottom: 1rem;
+ cursor: pointer;
+}
+
+.userDiv:hover {
+    background-color: whitesmoke;
+    color: black;
+
+}
+ .userDiv :nth-child(3) {
+    position: relative;
+    top: 0.6rem;
+    left: -2rem;
+    font-size: 1.2rem;
+    padding-left: -2rem;
+    padding-right: 2rem;
+
+}
+.userDiv :nth-child(2) {
+    position: relative;
+    left: 1.39rem;
+    top: -0.8rem;
+    font-weight: bolder;
+    font-size: 1.2rem
+    
+}
+
+.userDiv :nth-child(1){
+    /* position: relative; */
+    /* top: 1rem; */
+  
+}

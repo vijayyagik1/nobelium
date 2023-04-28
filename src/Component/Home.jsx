@@ -1,4 +1,5 @@
 
+import LeftSideBar from '../HomeComponent/LeftSideBar'
 import React from "react";
 import RightSideBar from "../HomeComponent/RightSideBar";
 import { useRecoilState } from "recoil";
@@ -302,9 +303,15 @@ const Home = () => {
 
   return (
 
+    <div>
+      
+      
+
     <div className={Styles.mainWrapper}>
-      I am Home
+    
+      
       <div className={Styles.container}>
+      <LeftSideBar/>
       <MainComponent/>
       <div className={Styles.RightMain}>
         <h3>What's Happening</h3>
@@ -314,7 +321,6 @@ const Home = () => {
         <button onClick={()=> setIsShow(!isShow)}>Show More</button>
       </div>
      </div>
-
 
     </div>
   );
