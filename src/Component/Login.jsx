@@ -7,13 +7,16 @@ import style from "./Login.module.css";
 import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
-import {RxCross2} from 'react-icons/rx'
+import {RxCross2} from 'react-icons/rx';
+import swal from 'sweetalert';
+
 const Login = () => {
   const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
 
   function getData() {
     const users = localStorage.getItem("users");
@@ -29,17 +32,25 @@ const Login = () => {
 
   const handleLogin = () => {
     const userData = getData()
+    if(!email||!password){
+      alert("please Fill All the Data")
+      return;
+    }
     const currentUser = userData.find((data) => data.email === email);
-    if (currentUser.password === password) {
-      alert("Login successful");
-      navigate("/");
-    } else if (!currentUser) {
+    if (!currentUser) {
       alert("User Not Found");
     }
+    else if (currentUser.password === password) {
+      swal("Login Successful!", "You have Successfully logged In!", "success");
+      setIsLogIn(true)
+      navigate("/");
+    } 
   };
-  console.log(email, password);
+  
+
 
   return (
+    <div className={style.main}>
     <div className={style.mainContainer}>
       <div className={style.heading}>
 
@@ -100,8 +111,9 @@ const Login = () => {
       <div className={style.switch}>
         <span>Don't Have an Account?</span> &nbsp;
 
-        <span onClick={() => navigate("/signup")}>Sign Up</span>
+        <span onClick={()=>navigate('/signup')}>Sign Up</span>
       </div>
+    </div>
     </div>
   );
 };
