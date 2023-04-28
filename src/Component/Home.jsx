@@ -8,7 +8,8 @@ import Styles from "./Home.module.css";
 import MainComponent from '../HomeComponent/MainComponent'
 import { isUserLoggedIn } from '../Data/AtomData/Atom'
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import Twittes from "./HomeComponent/Twittes";
 
 
 const Home = () => {
@@ -304,6 +305,7 @@ const Home = () => {
   return (
 
     <div>
+
       
       
 
@@ -312,6 +314,8 @@ const Home = () => {
       
       <div className={Styles.container}>
       <LeftSideBar/>
+      
+      <Twittes />
       <MainComponent/>
       <div className={Styles.RightMain}>
         <h3>What's Happening</h3>
