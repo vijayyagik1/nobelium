@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./LeftSideBar.module.css";
 import { CgMoreO } from "react-icons/cg";
 import { BiHomeCircle } from "react-icons/bi";
@@ -12,17 +12,19 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 export default function LeftSideBar() {
+const [isVisible, setIsVisible] = useState(false);
+
   const data = [
     {
       icon: <BiHomeCircle />,
       name: "Home",
     },
     {
-      icon: <TagIcon />,
+      icon: <TagIcon sx={{ fontSize: 40 }} />,
       name: "Explore",
     },
     {
-      icon: <NotificationsNoneIcon />,
+      icon: <NotificationsNoneIcon sx={{ fontSize: 40 }} />,
       name: "Notifications",
     },
     {
@@ -30,15 +32,15 @@ export default function LeftSideBar() {
       name: "Messages",
     },
     {
-      icon: <BookmarkBorderIcon />,
+      icon: <BookmarkBorderIcon sx={{ fontSize: 40 }} />,
       name: "Bookmarks",
     },
     {
-      icon: <FaTwitter />,
+      icon: <FaTwitter sx={{ fontSize: 40 }} />,
       name: "Twitter Blue",
     },
     {
-      icon: <PermIdentityIcon />,
+      icon: <PermIdentityIcon sx={{ fontSize: 40 }} />,
       name: "Profile",
     },
     {
@@ -47,15 +49,24 @@ export default function LeftSideBar() {
     },
   ];
 
+  const logoutBtnVisible = ()=> {
+setIsVisible(!isVisible); 
+console.log("Logout")
+
+  }
+
   return (
     <div className={style.mainContainer}>
       <div className={style.sideBarBtnGroup}>
         <FaTwitter
           sx={{
-            fontSize: "2.8rem",
-            // padding: "0.1rem",
-            // paddingLeft: "1.5rem",
-            // paddingRight: "1.5rem",
+            margin: "8px",
+            fontSize: "3.5rem",
+            borderRadius: "50%",
+            padding: "5px",
+            '&:hover': {
+              backgroundColor: "rgba(204, 201, 201, 0.486)"
+            }
           }}
           className={style.mainIcon}
         />
@@ -74,9 +85,12 @@ export default function LeftSideBar() {
               fontSize: "1.3rem",
               textTransform: "none",
               gap: "1rem",
-              padding: "0.8rem",
+              padding: "0.6rem",
               paddingLeft: "1.5rem",
               paddingRight: "1.5rem",
+              '&:hover': {
+              backgroundColor: "rgba(204, 201, 201, 0.486)"
+            }
             }}
             startIcon={ele.icon}
           >
@@ -92,6 +106,7 @@ export default function LeftSideBar() {
             borderRadius: "3rem",
             width: "16rem",
             height: "3.7rem",
+            marginTop:"0.5rem",
             // marginLeft: "-2rem",
             // position:"relative",
             // left: "-1rem",
@@ -103,7 +118,20 @@ export default function LeftSideBar() {
         </Button>
       </div>
 
-      <div className={style.userDiv}>
+
+      {/*Logout button user when am clicked then use logged out */}
+<div style={isVisible ? {}: {display: "none"}} className={style.logoutPopup}>
+<hr/>
+<div>
+<p>Add an existing account </p>
+</div>
+<div>
+<p> Log out @username</p>
+</div>
+
+</div>
+
+      <div onClick={logoutBtnVisible} className={style.userDiv}>
         <PermIdentityIcon
           sx={{
             height: "3rem",
