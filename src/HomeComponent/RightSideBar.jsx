@@ -9,8 +9,8 @@ const RightSideBar = (props) => {
         <button>...</button>
       </div>
       <div className={Styles.Content}>
-        <p>{props.content}</p>
-        <p>{Math.floor(Math.random()* (5000) + 5000)} tweets</p>
+        <span>{props.content}</span><br/>
+        <span>{Math.floor(Math.random()* (5000) + 5000)} tweets</span>
       </div>
     </div>
   )
