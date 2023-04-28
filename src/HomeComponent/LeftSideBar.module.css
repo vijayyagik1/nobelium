@@ -1,14 +1,18 @@
-.mainContainer{
+.mainContainer {
     display: flex;
     flex-direction: column;
     /* border: 1px solid; */
     align-items: flex-end;
     width: 25%;
     justify-content: space-between;
-    height: 100vh;
+    height: 80vh;
+    position: sticky;
+    top: 0px;
+    /* margin: -20px; */
     /* background-color: black; */
 }
-.sideBarBtnGroup{
+
+.sideBarBtnGroup {
     /* border: 1px solid wheat; */
     display: flex;
     flex-direction: column;
@@ -16,75 +20,117 @@
     padding-right: 2rem;
     /* gap: 10px; */
 }
-.mainIcon{
-   /* height: 10%; 
+
+.mainIcon {
+    /* height: 10%; 
    width: 5rem; */
 
     color: #00acee;
-    
-}
-.sideBarBtn{
-    /* height: 3.59rem */
-    color: black;
 
-    
 }
-.sideBarBtn:hover{
+
+.sideBarBtn {
+    /* height: 3.59rem */
+    /* color: black; */
+
+
+}
+
+.sideBarBtn:hover {
     /* border: 1rem solid; */
     /* color: #00acee; */
-    color: black;
-    background-color: rgb(255, 107, 107);
-    
+    /* color: black; */
+    /* background-color: rgba(204, 201, 201, 0.486); */
+
 
 }
 
-.tweetBtn{
- font-weight: bolder;
+.tweetBtn {
+    font-weight: bolder;
 
 }
 
 
-.userDiv{
-    border: 1px solid wheat;
-
-    min-height: 4rem;       
-    border: 1px solid;
-    width: 18rem ;
- display: flex;
- flex-direction: row;
- border-radius: 3rem;
- justify-content: center;
- align-items: center;
- margin-top: 3rem;
- margin-bottom: 1rem;
- cursor: pointer;
+.userDiv {
+    min-height: 4.5rem;
+    /* border: 1px solid; */
+    width: 18rem;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3rem;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 6.2rem; */
+    cursor: pointer;
+    position: relative;
+    top: 5.5rem;
 }
 
 .userDiv:hover {
-    background-color: whitesmoke;
+    background-color: rgba(204, 201, 201, 0.486);
     color: black;
 
 }
- .userDiv :nth-child(3) {
+
+.userDiv :nth-child(3) {
     position: relative;
     top: 0.6rem;
     left: -2rem;
     font-size: 1.2rem;
     padding-left: -2rem;
     padding-right: 2rem;
+    color: #656a6e;
 
 }
+
 .userDiv :nth-child(2) {
     position: relative;
     left: 1.39rem;
     top: -0.8rem;
     font-weight: bolder;
     font-size: 1.2rem
-    
 }
 
-.userDiv :nth-child(1){
+.logoutPopup{
+    border: 3px solid rgba(204, 201, 201, 0.486) ;
+    background-color: white;
+    border-radius: 1.5rem;
+    min-width: 22em;
+    min-height: 8em;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    position: absolute;
+    bottom: -3em;
+    right: -1.5rem;
+
+
+}
+ 
+.logoutPopup p{
+    font-size: 1.2em;
+    font-weight: 700;
+    position: relative;
+    width: 100%;
+    left: 1em;
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+}
+ .logoutPopup div{
+    min-height: 3rem;
+    width: 100%;
+    /* border: 1px solid red; */
+/* margin-top: 0.4em;     */
     /* position: relative; */
-    /* top: 1rem; */
-  
+    /* top: 0.4em; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+
+.logoutPopup div:hover{
+    background-color: rgba(204, 201, 201, 0.486);
 }

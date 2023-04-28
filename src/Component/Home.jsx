@@ -14,11 +14,11 @@ const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLoggedIn === false) {
-      navigate("/signin");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (isLoggedIn === false) {
+  //     navigate("/signin");
+  //   }
+  // }, []);
   let Right = [
     {
       id: 1,
@@ -49,7 +49,7 @@ const Home = () => {
       </div>
       <div className={Styles.centerDiv}>
         <HomeHeader />
-        <CreateTweet />
+        {/* <CreateTweet /> */}
 
         <MainComponent />
       </div>
