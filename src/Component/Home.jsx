@@ -1,11 +1,10 @@
-
-import LeftSideBar from '../HomeComponent/LeftSideBar'
+import LeftSideBar from "../HomeComponent/LeftSideBar";
 import React from "react";
 import RightSideBar from "../HomeComponent/RightSideBar";
 import { useRecoilState } from "recoil";
 import Styles from "./Home.module.css";
-import MainComponent from '../HomeComponent/MainComponent'
-import { isUserLoggedIn } from '../Data/AtomData/Atom'
+import MainComponent from "../HomeComponent/MainComponent";
+import { isUserLoggedIn } from "../Data/AtomData/Atom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import CreateTweet from '../HomeComponent/CreateTweet'
@@ -21,7 +20,6 @@ const Home = () => {
     }
   },[])
   let Right = [
-
       {
         id: 1,
         "Title ": "bibendum",
@@ -44,24 +42,18 @@ const Home = () => {
       },
     ];
 
-
   return (
-
-
-
-      
-      
-
     <div className={Styles.mainWrapper}>
-    
-      
       <div className={Styles.container}>
+
 
         <div className={Styles.leftDiv}>
         <LeftSideBar/>
       </div>
       <div className={Styles.centerDiv}>
+      <HomeHeader />
       <CreateTweet />
+      
           <MainComponent />
           </div>
       <div className={Styles.RightMain}>
@@ -71,8 +63,6 @@ const Home = () => {
         ))}
         <button>Show More</button>
       </div>
-     </div>
-
     </div>
   );
 };
