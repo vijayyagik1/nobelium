@@ -1,9 +1,26 @@
-.RightMain{
-    border: 1px solid;
-    width: 23%;
-    background-color:rgb(165, 164, 164);
-    margin-left: 70% ;
+.RightMain {
+  /* border: 1px solid; */
+  width: 23%;
+  background-color: whitesmoke;
+  margin-left: 70%;
+  border-radius: 3%;
 }
-.container{
-    display: flex;
+
+.RightMain > h3 {
+  position: relative;
+  left: 1rem;
+}
+
+.RightMain > button {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: inherit;
+  color: #93C5FD;
+  position: relative;
+  left: 1rem;
+}
+
+.container {
+  display: flex;
 }

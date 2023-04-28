@@ -8,9 +8,33 @@
 }
 
 .Upper > button{
-    color: #f0f6fc;
+    color: #5191d1;
     background-color: inherit;
     font-size: xx-large;
     text-decoration: solid;
     border: 0px transparent;
+}
+
+.Upper>h4{
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+.RightMain{
+    position: relative;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 15rem;
+    border: 1px solid;
+}
+
+.Content:nth-child(1){
+    font-size: large;
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: x-large;
 }
