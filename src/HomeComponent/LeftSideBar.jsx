@@ -55,14 +55,11 @@ export default function LeftSideBar() {
 
   const logoutBtnVisible = ()=> {
 setIsVisible(!isVisible); 
-console.log("Logout")
+
 
   }
   function handleLogOut() {
-    alert("Are you sure you want to Logout?")
-    currentUser.isLoggedIn = false;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser))
-    navigate("/signIn")
+    navigate("/logout")
   }
 
   return (
@@ -135,8 +132,8 @@ console.log("Logout")
 <div>
 <p>Add an existing account </p>
 </div>
-<div>
-          <p onClick={handleLogOut}> Log out {currentUser.email}</p>
+<div onClick={handleLogOut}>
+          <p > Log out {currentUser.email}</p>
 </div>
 
 </div>

@@ -10,22 +10,31 @@ import { useEffect } from "react";
 import CreateTweet from "../HomeComponent/CreateTweet";
 import HomeHeader from "../HomeComponent/HomeHeader";
 import { getCurrentUser } from "../services/utilities";
+import { ContactSupportOutlined } from "@mui/icons-material";
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
 
-  const currentUser = getCurrentUser()
+
   useEffect(() => {
-    if (currentUser.isLoggedIn === false) {
-      navigate("/signin");
+    const currentUser = getCurrentUser()
+    setIsLoggedIn(currentUser.isLoggedIn)
+    console.log(isLoggedIn)
+    if (isLoggedIn === true) {
+      fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => localStorage.setItem("posts", JSON.stringify(data)))
     }
     else {
-      fetch('http://localhost:3001/MOCK_DATA (1).json')
-      .then((res) => res.json())
-      .then((data) => localStorage.setItem('posts', JSON.stringify(data)))
+      
+
+      navigate("/signIn")
+
     }
-  },);
+  },[isLoggedIn]);
+
+
   let Right = [
     {
       id: 1,
