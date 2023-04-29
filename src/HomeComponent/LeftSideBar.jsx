@@ -10,9 +10,13 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FaTwitter from "@mui/icons-material/Twitter";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { getCurrentUser } from "../services/utilities";
+import { useNavigate } from "react-router-dom";
 
 export default function LeftSideBar() {
-const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate()
+  const [isVisible, setIsVisible] = useState(false);
+  const currentUser = getCurrentUser()
 
   const data = [
     {
@@ -53,6 +57,12 @@ const [isVisible, setIsVisible] = useState(false);
 setIsVisible(!isVisible); 
 console.log("Logout")
 
+  }
+  function handleLogOut() {
+    alert("Are you sure you want to Logout?")
+    currentUser.isLoggedIn = false;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+    navigate("/signIn")
   }
 
   return (
@@ -126,7 +136,7 @@ console.log("Logout")
 <p>Add an existing account </p>
 </div>
 <div>
-<p> Log out @username</p>
+          <p onClick={handleLogOut}> Log out {currentUser.email}</p>
 </div>
 
 </div>
@@ -138,8 +148,8 @@ console.log("Logout")
             width: "3rem",
           }}
         />
-        <span>Name</span>
-        <span>@userName</span>
+        <span>{currentUser.name}</span>
+        <span>{currentUser.email}</span>
         <FiMoreHorizontal />
       </div>
     </div>

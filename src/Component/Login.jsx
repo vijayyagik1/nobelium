@@ -43,7 +43,9 @@ const Login = () => {
     else if (currentUser.password === password) {
       swal("Login Successful!", "You have Successfully logged In!", "success");
       setIsLogIn(true)
+      currentUser.isLoggedIn = true
       navigate("/");
+      localStorage.setItem('currentUser' , JSON.stringify(currentUser))
     } 
   };
   
