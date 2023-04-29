@@ -4,24 +4,28 @@
   width: 21.875rem;
   background-color: whitesmoke;
   position: relative;
-  left: 20%;
+  left: 12%;
   border-radius: 3%;
-  height: fit-content;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-.RightMain > h3 {
+.RightMain>div>h3 {
   position: relative;
   left: 1rem;
 }
 
 .RightMain > button {
+  width: fit-content;
   border: none;
   text-decoration: none;
   cursor: pointer;
   background-color: inherit;
   color: #93C5FD;
   position: relative;
-  left: 1rem;
+  left: 1.1rem;
 }
 
 .container {
@@ -36,4 +40,10 @@
     position: relative;
     left: 10%;
     border: 1px darkgray;
+}
+
+.Content{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
