@@ -15,7 +15,7 @@ export default function MainComponent() {
     function handleLikeClick(id) {
         setLikes(likes + 1)
         const currentUser = userData.find((ele)=>ele.id===id)
-        if (likes % 2 == 0) {
+        if (likes % 2 == 0){
             currentUser.liked=true
             currentUser.likes += 1
         }

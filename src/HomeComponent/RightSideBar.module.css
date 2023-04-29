@@ -1,41 +1,32 @@
-.Upper{
-    /* border: 1px solid red; */
-    display: flex;
-    width: 19.875rem;
-    justify-content: space-between;
-    align-items: center;
-    height: 2rem;
-
+.Main {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid; */
 }
 
-.Upper > button{
-    color: #5191d1;
-    background-color: inherit;
-    font-size: xx-large;
-    text-decoration: solid;
-    border: 0px transparent;
+.Contents{
+    margin-left: 1rem;
 }
 
-.Upper>h4{
-    text-transform: uppercase;
-    font-size: small;
-    font-weight: 400;
-    font-family: sans-serif;
+.Contents > h4 {
+  margin-top: 0.1rem;
+  color: #536471;
+  font-size: 0.9rem;
+  font-weight: 450;
 }
 
-.RightMain{
-    position: relative;
-    left: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    width: 15rem;
-    border: 1px solid;
+.Contents > span {
+    margin-top: 0.1rem;
+    color: #536471;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.Content:nth-child(1){
-    font-size: large;
-    text-transform: capitalize;
+.butt1>Button{
     font-weight: bolder;
-    font-size: x-large;
+}
+
+.butt1 span{
+  font-size: xx-large;
+  color: red;
 }
