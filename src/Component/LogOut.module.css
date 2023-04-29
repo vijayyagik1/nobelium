@@ -1,0 +1,45 @@
+.mainWrapper{
+    background-color:rgba(0, 0, 0, 0.4);
+    height: 100vh;
+}
+.container{
+width: 20rem;
+height: 22.5rem;
+background-color: white;
+border-radius: 15px;
+position: relative;
+top: 27.5%;
+left: 38.82%
+}
+.icon{
+    color: #00acee;
+    height: 20%;
+    width: 2.4rem;
+
+}
+.content{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.content Button{
+    border-radius: 3rem;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 16px;
+    width: 80%;
+    height: 50px;
+}
+.content :nth-child(4){
+    background-color: black;
+}
+.content :nth-child(5){
+    background-color: white;
+    color: black;
+}
+.content :nth-child(5):hover{
+    background-color: darkgray;
+}
