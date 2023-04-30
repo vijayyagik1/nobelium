@@ -52,17 +52,13 @@ export default function RightSideBar() {
 
   function handleVisible(index) {
     Right[index].popUp = !Right[index].popUp;
-    console.log("Index", index);
-    console.log("Roght", Right[index].popUp);
     setIsVisible(true);
   }
-  console.log("hii", isVisible);
 
   function handlediv(index) {
     Right[index].popUp = false;
     setIsVisible(Right[index].popUp);
   }
-  console.log("hello", isVisible);
 
   function handleDelete(Index) {
     let newArr = Right.filter((ele, index) => index !== Index);

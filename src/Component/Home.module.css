@@ -3,7 +3,8 @@
   /* border: 1px solid; */
   width: 21.875rem;
   background-color: whitesmoke;
-  
+  position: relative;
+  top:8.3%;
   border-radius: 3%;
   height: 30rem;
   display: flex;
