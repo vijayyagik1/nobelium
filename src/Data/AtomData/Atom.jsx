@@ -6,3 +6,9 @@ export const isUserLoggedIn = atom({
 })
 
 
+export const Tweet = atom({
+    key : 'tweet',
+    default:false
+})
+
+

@@ -1,3 +1,11 @@
+import TagIcon from "@mui/icons-material/Tag";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import { CgMoreO } from "react-icons/cg";
+import { BiHomeCircle } from "react-icons/bi";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import FaTwitter from "@mui/icons-material/Twitter";
 
 
 
@@ -690,4 +698,37 @@ export const userData = [
   },
 ];
 
-
+export const leftSideIconData = [
+    {
+      icon: <BiHomeCircle />,
+      name: "Home",
+    },
+    {
+      icon: <TagIcon sx={{ fontSize: 40 }} />,
+      name: "Explore",
+    },
+    {
+      icon: <NotificationsNoneIcon sx={{ fontSize: 40 }} />,
+      name: "Notifications",
+    },
+    {
+      icon: <MailOutlineIcon />,
+      name: "Messages",
+    },
+    {
+      icon: <BookmarkBorderIcon sx={{ fontSize: 40 }} />,
+      name: "Bookmarks",
+    },
+    {
+      icon: <FaTwitter sx={{ fontSize: 40 }} />,
+      name: "Twitter Blue",
+    },
+    {
+      icon: <PermIdentityIcon sx={{ fontSize: 40 }} />,
+      name: "Profile",
+    },
+    {
+      icon: <CgMoreO />,
+      name: "More",
+    },
+  ];

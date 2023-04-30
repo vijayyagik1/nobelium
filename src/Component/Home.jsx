@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import CreateTweet from "../HomeComponent/CreateTweet";
 import HomeHeader from "../HomeComponent/HomeHeader";
+import TweetModel from "../HomeComponent/TweetModel";
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
@@ -46,10 +47,11 @@ const Home = () => {
     <div className={Styles.container}>
       <div className={Styles.leftDiv}>
         <LeftSideBar />
+        <TweetModel/>
       </div>
       <div className={Styles.centerDiv}>
         <HomeHeader />
-        {/* <CreateTweet /> */}
+        <CreateTweet />
 
         <MainComponent />
       </div>
