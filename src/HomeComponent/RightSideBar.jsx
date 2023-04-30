@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Styles from "./RightSideBar.module.css";
 import { Button } from "@mui/material";
 import { CgSmileSad } from "react-icons/cg";
+import WhoFollow from "./WhoFollow";
 
 export default function RightSideBar() {
   const [Right, setRight] = useState([
@@ -70,6 +71,7 @@ export default function RightSideBar() {
       <div>
         <h3>What's Happening</h3>
       </div>
+
       {Right.map((ele, index) => (
         <div key={ele.id} className={Styles.map}>
           <div className={Styles.Contents}>
@@ -125,6 +127,8 @@ export default function RightSideBar() {
         </div>
       ))}
       <button>Show More</button>
+
     </div>
+  
   );
 }

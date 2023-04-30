@@ -13,7 +13,14 @@ import HomeHeader from "../HomeComponent/HomeHeader";
 import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
-import SearchBar from "../HomeComponent/SearchBar";
+
+
+import WhoFollow from "../HomeComponent/WhoFollow";
+
+import SearchBar from "../HomeComponent/SearchBar"
+
+
+
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
@@ -53,8 +60,20 @@ const Home = () => {
             <RightSideBar />
           </div>
         </div>
+
+
+
       </div>
-    </div>
+       <div class={Styles.whoFollow}>
+
+      <WhoFollow/>
+       </div>
+
+      </div>
+      </div>
+
+    
+
   );
 };
 
