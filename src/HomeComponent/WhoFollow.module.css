@@ -52,3 +52,10 @@ img {
     background-color: rgba(204, 201, 201, 0.486);
 
  }
+ .userDiv Button{
+    background-color: black;
+    text-transform: none;
+ }
+ .userDiv Button:hover{
+    background-color: rgb(45, 45, 45);
+ }
