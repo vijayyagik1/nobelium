@@ -14,9 +14,9 @@ import { getCurrentUser } from "../services/utilities";
 import { useNavigate } from "react-router-dom";
 
 export default function LeftSideBar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const currentUser = getCurrentUser()
+  const currentUser = getCurrentUser();
 
   const data = [
     {
@@ -53,16 +53,15 @@ export default function LeftSideBar() {
     },
   ];
 
-  const logoutBtnVisible = ()=> {
-setIsVisible(!isVisible); 
-console.log("Logout")
-
-  }
+  const logoutBtnVisible = () => {
+    setIsVisible(!isVisible);
+    console.log("Logout");
+  };
   function handleLogOut() {
-    alert("Are you sure you want to Logout?")
+    alert("Are you sure you want to Logout?");
     currentUser.isLoggedIn = false;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser))
-    navigate("/signIn")
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    navigate("/signIn");
   }
 
   return (
@@ -74,9 +73,9 @@ console.log("Logout")
             fontSize: "3.5rem",
             borderRadius: "50%",
             padding: "5px",
-            '&:hover': {
-              backgroundColor: "rgba(204, 201, 201, 0.486)"
-            }
+            "&:hover": {
+              backgroundColor: "rgba(204, 201, 201, 0.486)",
+            },
           }}
           className={style.mainIcon}
         />
@@ -98,9 +97,9 @@ console.log("Logout")
               padding: "0.6rem",
               paddingLeft: "1.5rem",
               paddingRight: "1.5rem",
-              '&:hover': {
-              backgroundColor: "rgba(204, 201, 201, 0.486)"
-            }
+              "&:hover": {
+                backgroundColor: "rgba(204, 201, 201, 0.486)",
+              },
             }}
             startIcon={ele.icon}
           >
@@ -116,7 +115,7 @@ console.log("Logout")
             borderRadius: "3rem",
             width: "16rem",
             height: "3.7rem",
-            marginTop:"0.5rem",
+            marginTop: "0.5rem",
             // marginLeft: "-2rem",
             // position:"relative",
             // left: "-1rem",
@@ -128,18 +127,19 @@ console.log("Logout")
         </Button>
       </div>
 
-
       {/*Logout button user when am clicked then use logged out */}
-<div style={isVisible ? {}: {display: "none"}} className={style.logoutPopup}>
-<hr/>
-<div>
-<p>Add an existing account </p>
-</div>
-<div>
+      <div
+        style={isVisible ? {} : { display: "none" }}
+        className={style.logoutPopup}
+      >
+        <hr />
+        <div>
+          <p>Add an existing account </p>
+        </div>
+        <div>
           <p onClick={handleLogOut}> Log out {currentUser.email}</p>
-</div>
-
-</div>
+        </div>
+      </div>
 
       <div onClick={logoutBtnVisible} className={style.userDiv}>
         <PermIdentityIcon
