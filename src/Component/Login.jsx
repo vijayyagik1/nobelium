@@ -31,18 +31,24 @@ const Login = () => {
   }
 
   const handleLogin = () => {
+
     const userData = getData()
+    
     if(!email||!password){
       alert("please Fill All the Data")
       return;
     }
     const currentUser = userData.find((data) => data.email === email);
+  
     if (!currentUser) {
       alert("User Not Found");
     }
     else if (currentUser.password === password) {
+     
       swal("Login Successful!", "You have Successfully logged In!", "success");
       setIsLogIn(true)
+      currentUser.isLoggedIn = true
+      localStorage.setItem('currentUser', JSON.stringify(currentUser))
       navigate("/");
     } 
   };

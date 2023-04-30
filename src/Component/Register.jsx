@@ -6,7 +6,7 @@ import styles from "./Register.module.css";
 import { Button, TextField } from "@mui/material";
 import { Days, Month, Year } from "../Data/AtomData/data";
 import { useNavigate } from "react-router-dom";
-
+import {RxCross2} from 'react-icons/rx'
 const Register = () => {
   const [isInput, setIsInput] = useState(false);
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const Register = () => {
     date: "",
     month: "",
     year: "",
+    isLoggedIn: false
   });
 
   function handleName(e) {
@@ -129,8 +130,13 @@ const Register = () => {
   return (
     <div className={styles.main}>
     <div className={styles.mainContainer}>
-      <div className={styles.heading}>
-        <FaTwitter />
+        <div className={styles.heading}>
+        <RxCross2 size={30}  />
+          <FaTwitter />
+          
+        
+        </div>
+        <div className={styles.header}>
         <h1>Join Twitter Today</h1>
       </div>
 

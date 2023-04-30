@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import style from "./LeftSideBar.module.css";
-
 import { Button } from "@mui/material";
-
 import FaTwitter from "@mui/icons-material/Twitter";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -10,13 +8,32 @@ import { useRecoilState } from "recoil";
 import { Tweet } from "../Data/AtomData/Atom";
 import { Tweets } from "./TweetModel";
 import {leftSideIconData} from '../Data/AtomData/data'
-
+import { getCurrentUser } from "../services/utilities";
+import { useNavigate } from "react-router-dom";
 
 export default function LeftSideBar() {
   const [isVisible, setIsVisible] = useState(false);
   const [isTweet,setIsTweet] = useRecoilState(Tweet)
 
   
+
+
+
+export default function LeftSideBar() {
+  const navigate = useNavigate()
+  const [isVisible, setIsVisible] = useState(false);
+  const currentUser = getCurrentUser()
+
+
+  const logoutBtnVisible = ()=> {
+setIsVisible(!isVisible); 
+
+
+  }
+  function handleLogOut() {
+    navigate("/logout")
+  }
+
 
   return (
     <div
@@ -88,6 +105,7 @@ export default function LeftSideBar() {
       </div>
 
       {/*Logout button user when am clicked then use logged out */}
+{/* Conflict here, please check on live server and resolve*/}
       {isVisible && (
         <div
           className={style.logoutPopup}
@@ -102,6 +120,18 @@ export default function LeftSideBar() {
         </div>
       )}
 
+<div style={isVisible ? {}: {display: "none"}} className={style.logoutPopup}>
+<hr/>
+<div>
+<p>Add an existing account </p>
+</div>
+<div onClick={handleLogOut}>
+          <p > Log out {currentUser.email}</p>
+</div>
+
+</div>
+
+{/* Conflict here, please check on live server and resolve*/}
       <div
         onClick={() => setIsVisible(!isVisible)}
         className={style.userDiv}
@@ -112,8 +142,10 @@ export default function LeftSideBar() {
             width: "3rem",
           }}
         />
-        <span>Name</span>
-        <span>@userName</span>
+        <div className={style.userDetail}>
+        <h5>Samad</h5>
+        <p>{currentUser.email}</p>
+        </div>
         <FiMoreHorizontal />
       </div>
     </div>

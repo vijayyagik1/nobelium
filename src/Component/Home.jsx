@@ -9,38 +9,72 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import CreateTweet from "../HomeComponent/CreateTweet";
 import HomeHeader from "../HomeComponent/HomeHeader";
+
 import TweetModel from "../HomeComponent/TweetModel";
+
+import { getCurrentUser } from "../services/utilities";
+import { ContactSupportOutlined } from "@mui/icons-material";
+
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isLoggedIn === false) {
-  //     navigate("/signin");
-  //   }
-  // }, []);
+
+  useEffect(() => {
+    const currentUser = getCurrentUser()
+    setIsLoggedIn(currentUser.isLoggedIn)
+    console.log(isLoggedIn)
+    if (isLoggedIn === true) {
+      fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => localStorage.setItem("posts", JSON.stringify(data)))
+    }
+    else {
+      
+
+      navigate("/signIn")
+
+    }
+  },[isLoggedIn]);
+
+
   let Right = [
     {
       id: 1,
-      "Title ": "bibendum",
-      Content: "luctus",
+      isNotIntrested: false,
+      country: "Sports Trending",
+      keyword: "Gautam Gambhir",
+      totalKeywords: "8000k Tweets",
     },
     {
       id: 2,
-      "Title ": "dolor",
-      Content: "diam",
+      isNotIntrested: false,
+      country: "Trending in India",
+      keyword: "#Virat kohli",
+      totalKeywords: "6000k Tweets",
     },
     {
       id: 3,
-      "Title ": "ac",
-      Content: "scelerisque",
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "Telugu",
+      totalKeywords: "2560k Tweets",
     },
     {
       id: 4,
-      "Title ": "lacus",
-      Content: "ante",
+      isNotIntrested: true,
+      country: "Trending in Politics",
+      keyword: "#Pappu",
+      totalKeywords: "2000k Tweets",
     },
+    {
+      id: 5,
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#sachin",
+      totalKeywords: "2000k Tweets",
+    }
   ];
 
   return (
@@ -56,10 +90,12 @@ const Home = () => {
         <MainComponent />
       </div>
       <div className={Styles.RightMain}>
-        <h3>What's Happening</h3>
-        {Right.map((ele) => (
-          <RightSideBar Message={ele["Title "]} content={ele.Content} />
-        ))}
+        <div><h3>What's Happening</h3></div>
+        <div className={Styles.Content}>
+          {Right.map((ele) => (
+            <RightSideBar Message={ele["country"]} id={ele.id} content={ele.keyword} count={ele.totalKeywords} />
+          ))}
+        </div>
         <button>Show More</button>
       </div>
     </div>
