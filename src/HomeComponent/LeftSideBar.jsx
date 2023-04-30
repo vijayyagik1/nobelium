@@ -1,71 +1,45 @@
 import React, { useState } from "react";
 import style from "./LeftSideBar.module.css";
-import { CgMoreO } from "react-icons/cg";
-import { BiHomeCircle } from "react-icons/bi";
 import { Button } from "@mui/material";
-import TagIcon from "@mui/icons-material/Tag";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FaTwitter from "@mui/icons-material/Twitter";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { useRecoilState } from "recoil";
+import { Tweet } from "../Data/AtomData/Atom";
+import { Tweets } from "./TweetModel";
+import {leftSideIconData} from '../Data/AtomData/data'
 import { getCurrentUser } from "../services/utilities";
 import { useNavigate } from "react-router-dom";
 
+
+
+
 export default function LeftSideBar() {
-  const navigate = useNavigate();
+
+  const [isTweet,setIsTweet] = useRecoilState(Tweet)
+
+  const navigate = useNavigate()
+
   const [isVisible, setIsVisible] = useState(false);
   const currentUser = getCurrentUser();
 
-  const data = [
-    {
-      icon: <BiHomeCircle />,
-      name: "Home",
-    },
-    {
-      icon: <TagIcon sx={{ fontSize: 40 }} />,
-      name: "Explore",
-    },
-    {
-      icon: <NotificationsNoneIcon sx={{ fontSize: 40 }} />,
-      name: "Notifications",
-    },
-    {
-      icon: <MailOutlineIcon />,
-      name: "Messages",
-    },
-    {
-      icon: <BookmarkBorderIcon sx={{ fontSize: 40 }} />,
-      name: "Bookmarks",
-    },
-    {
-      icon: <FaTwitter sx={{ fontSize: 40 }} />,
-      name: "Twitter Blue",
-    },
-    {
-      icon: <PermIdentityIcon sx={{ fontSize: 40 }} />,
-      name: "Profile",
-    },
-    {
-      icon: <CgMoreO />,
-      name: "More",
-    },
-  ];
 
-  const logoutBtnVisible = () => {
-    setIsVisible(!isVisible);
-    console.log("Logout");
-  };
+
+  const logoutBtnVisible = ()=> {
+setIsVisible(!isVisible); 
+
+
+  }
   function handleLogOut() {
-    alert("Are you sure you want to Logout?");
-    currentUser.isLoggedIn = false;
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    navigate("/signIn");
+    navigate("/logout")
+
   }
 
+
   return (
-    <div className={style.mainContainer}>
+    <div
+      className={style.mainContainer}
+    >
       <div className={style.sideBarBtnGroup}>
         <FaTwitter
           sx={{
@@ -79,7 +53,7 @@ export default function LeftSideBar() {
           }}
           className={style.mainIcon}
         />
-        {data.map((ele, index) => (
+        {leftSideIconData.map((ele, index) => (
           <Button
             title={window.screen.width > 840 ? ele.name : ""}
             size="large"
@@ -107,7 +81,11 @@ export default function LeftSideBar() {
           </Button>
         ))}
 
+        {/* Tweet PopUp here */}
+        {/* {isTweet&&<Tweets/>} */}
+
         <Button
+        onClick={()=>setIsTweet(true)}
           className={style.tweetBtn}
           sx={{
             fontSize: "1.2rem",
@@ -128,28 +106,49 @@ export default function LeftSideBar() {
       </div>
 
       {/*Logout button user when am clicked then use logged out */}
-      <div
-        style={isVisible ? {} : { display: "none" }}
-        className={style.logoutPopup}
-      >
-        <hr />
-        <div>
-          <p>Add an existing account </p>
-        </div>
-        <div>
-          <p onClick={handleLogOut}> Log out {currentUser.email}</p>
-        </div>
-      </div>
 
-      <div onClick={logoutBtnVisible} className={style.userDiv}>
+{/* Conflict here, please check on live server and resolve*/}
+      {isVisible && (
+        <div
+          className={style.logoutPopup}
+        >
+          <hr />
+          <div>
+            <p>Add an existing account </p>
+          </div>
+          <div>
+            <p> Log out @username</p>
+          </div>
+        </div>
+      )}
+
+<div style={isVisible ? {}: {display: "none"}} className={style.logoutPopup}>
+<hr/>
+<div>
+<p>Add an existing account </p>
+</div>
+<div onClick={handleLogOut}>
+          <p > Log out {currentUser.email}</p>
+</div>
+
+</div>
+
+
+{/* Conflict here, please check on live server and resolve*/}
+      <div
+        onClick={() => setIsVisible(!isVisible)}
+        className={style.userDiv}
+      >
         <PermIdentityIcon
           sx={{
             height: "3rem",
             width: "3rem",
           }}
         />
-        <span>{currentUser.name}</span>
-        <span>{currentUser.email}</span>
+        <div className={style.userDetail}>
+        <h5>Samad</h5>
+        <p>{currentUser.email}</p>
+        </div>
         <FiMoreHorizontal />
       </div>
     </div>

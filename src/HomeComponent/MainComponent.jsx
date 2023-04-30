@@ -36,7 +36,7 @@ export default function MainComponent() {
                    alt="user img"
                  />
                  <div>
-                           <h5>{user.first_name}&nbsp;<span>{user.email}</span></h5>
+                           <h5>{user.name}&nbsp;<span>{user.email}</span></h5>
                    <br />
                    <span>{user.post_text}</span>
                  </div>
@@ -46,11 +46,11 @@ export default function MainComponent() {
                    </div>
                    <div className={styles.btnDiv}>
                        <Button variant="text" startIcon={<FaRegComment/>} id={styles.commentBtn} >{user.comment}</Button>
-                       <Button id={styles.retweetBtn} startIcon={<MdSync/>}>{user.shares}</Button>
+                       <Button id={styles.retweetBtn} startIcon={<MdSync/>}>{user.retweet}</Button>
                       <Button onClick={() => handleLikeClick(user.id)}
                           
                           id={styles.likesBtn} startIcon={user.isLiked?(<AiFillHeart size={24} style={{color:'deeppink'}}/>):(<BsHeart/>)}>{user.likes}</Button>
-                       <Button id={styles.trendingBtn} startIcon={<MdPoll/>}>{user.trending}</Button>
+                       <Button id={styles.trendingBtn} startIcon={<MdPoll/>}>{user.veiw}</Button>
                        <Button id={styles.shareBtn} startIcon={<FiShare/>}></Button>
                    </div>
              </div>

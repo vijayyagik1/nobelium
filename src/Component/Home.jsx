@@ -9,34 +9,43 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import CreateTweet from "../HomeComponent/CreateTweet";
 import HomeHeader from "../HomeComponent/HomeHeader";
+
+import TweetModel from "../HomeComponent/TweetModel";
+
 import { getCurrentUser } from "../services/utilities";
 import SearchBar from "../HomeComponent/SearchBar"
+
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
 
-  const currentUser = getCurrentUser()
+
   useEffect(() => {
-    if (currentUser.isLoggedIn === false) {
-      navigate("/signin");
+    const currentUser = getCurrentUser()
+    setIsLoggedIn(currentUser.isLoggedIn)
+    console.log(isLoggedIn)
+    if (isLoggedIn === true) {
+      fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => localStorage.setItem("posts", JSON.stringify(data)))
     }
     else {
-      fetch('http://localhost:3000/MOCK_DATA (1).json')
-      .then((res) => res.json())
-      .then((data) => localStorage.setItem('posts', JSON.stringify(data)))
+      navigate("/signIn")
     }
-  },[]);
+  },[isLoggedIn]);
+
 
 
   return (
     <div className={Styles.container}>
       <div className={Styles.leftDiv}>
         <LeftSideBar />
+        <TweetModel/>
       </div>
       <div className={Styles.centerDiv}>
         <HomeHeader />
-        {/* <CreateTweet /> */}
+        <CreateTweet />
 
         <MainComponent />
       </div>
