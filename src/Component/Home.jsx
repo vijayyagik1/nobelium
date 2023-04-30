@@ -13,7 +13,11 @@ import HomeHeader from "../HomeComponent/HomeHeader";
 import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
+
+import WhoFollow from "../HomeComponent/WhoFollow";
+
 import SearchBar from "../HomeComponent/SearchBar"
+
 
 
 const Home = () => {
@@ -55,7 +59,13 @@ const Home = () => {
         <div className={Styles.Content}>
           <RightSideBar/>
         </div>
+
+        <button>Show More</button>
+      <WhoFollow/>
+      </div>
+
       </div></div>
+
     </div>
   );
 };
