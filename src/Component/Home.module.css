@@ -3,8 +3,7 @@
   /* border: 1px solid; */
   width: 21.875rem;
   background-color: whitesmoke;
-  position: relative;
-  left: 12%;
+  
   border-radius: 3%;
   height: 30rem;
   display: flex;
@@ -12,20 +11,9 @@
   gap: 1.2rem;
 }
 
-.RightMain>div>h3 {
+.RMain{
   position: relative;
-  left: 1rem;
-}
-
-.RightMain > button {
-  width: fit-content;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: inherit;
-  color: #93C5FD;
-  position: relative;
-  left: 1.1rem;
+  left: 12%;
 }
 
 .container {
