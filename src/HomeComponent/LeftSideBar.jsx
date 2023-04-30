@@ -11,15 +11,12 @@ import {leftSideIconData} from '../Data/AtomData/data'
 import { getCurrentUser } from "../services/utilities";
 import { useNavigate } from "react-router-dom";
 
+
+
+
 export default function LeftSideBar() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isTweet,setIsTweet] = useRecoilState(Tweet)
 
-  
-
-
-
-export default function LeftSideBar() {
   const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState(false);
   const currentUser = getCurrentUser()

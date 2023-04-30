@@ -13,7 +13,6 @@ import HomeHeader from "../HomeComponent/HomeHeader";
 import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
-import { ContactSupportOutlined } from "@mui/icons-material";
 
 
 const Home = () => {
