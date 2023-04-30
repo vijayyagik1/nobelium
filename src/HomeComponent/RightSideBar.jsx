@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Styles from "./RightSideBar.module.css";
 import { Button, Popover, Typography } from "@mui/material";
 import { CgSmileSad } from "react-icons/cg";
+import WhoFollow from "./WhoFollow";
 
 
 export default function RightSideBar(props) {
@@ -47,6 +48,8 @@ export default function RightSideBar(props) {
           <Typography variant="h6"> <span><CgSmileSad />This trend is harmful or spammy</span></Typography>
         </Popover>
       </div>
+      
     </div>
+  
   );
 }
