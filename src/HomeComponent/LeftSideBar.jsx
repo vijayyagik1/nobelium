@@ -145,8 +145,10 @@ setIsVisible(!isVisible);
             width: "3rem",
           }}
         />
-        <span>{currentUser.name}</span>
-        <span>{currentUser.email}</span>
+        <div className={style.userDetail}>
+        <h5>Samad</h5>
+        <p>{currentUser.email}</p>
+        </div>
         <FiMoreHorizontal />
       </div>
     </div>

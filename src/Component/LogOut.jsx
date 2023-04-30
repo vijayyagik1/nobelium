@@ -16,10 +16,13 @@ export default function Logout() {
             <div className={styles.container}>
                 <div className={styles.content}>
                 <FaTwitter className={styles.icon} />
+                    
+                    <div className={styles.text}>
                     <h3>Log out of Twitter?</h3>
                     <span>You can always log back in at any time. If you just want to switch accounts, you can do that by adding an existing account. </span>
                     <Button onClick={handleLogout} variant='contained' >Log out</Button>
                     <Button onClick={()=>navigate("/")} variant='contained' >Cancel</Button>
+                    </div>
                 </div>
             </div>
         </div>
