@@ -140,8 +140,8 @@ setIsVisible(!isVisible);
           }}
         />
         <div className={style.userDetail}>
-        <h5>Samad</h5>
-        <p>{currentUser.email}</p>
+          <h5>{currentUser.name}</h5>
+        <p>{currentUser.userName}</p>
         </div>
         <FiMoreHorizontal />
       </div>

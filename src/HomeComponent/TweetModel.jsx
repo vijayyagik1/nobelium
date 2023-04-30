@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import style from "./TweetModel.module.css";
-import { Tweet } from "../Data/AtomData/Atom";
+import { Tweet ,atomTweetCount} from "../Data/AtomData/Atom";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
@@ -15,8 +15,10 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-
+import { userPic } from "../Data/AtomData/data";
+import { getPosts } from "../services/utilities";
 export default function TweetModel() {
+
   const [isTweet, setIsTweet] = useRecoilState(Tweet);
 
   return (
@@ -35,7 +37,37 @@ export default function TweetModel() {
 
 export function Tweets() {
   const setIsTweet = useSetRecoilState(Tweet);
-
+  const [input, setInput] = useState("")
+  const [isDisable, setIsDisable] = useState(true)
+  const [tweetCount, setTweetCount] = useRecoilState(atomTweetCount)
+  const posts = getPosts();
+  function handleInput(e) {
+    setInput(e.target.value);
+    if (input) {
+      setIsDisable(false)
+    }
+    
+  }
+  function handleTweet() {
+    let id = Math.random()
+    id = Math.floor(id*80)
+    const newPost = {
+      id: id,
+      comments: 0,
+      likes: 0,
+      isLiked: false,
+      retweets: 0,
+      trending: 0,
+      profilePic: userPic,
+      postText: input,
+    }
+    setIsDisable(true)
+    setInput("")
+    setTweetCount(tweetCount+1)
+    posts.unshift(newPost)
+    localStorage.setItem("posts", JSON.stringify(posts))
+    setIsTweet(false)
+  }
   return (
     <Fragment>
       <div 
@@ -62,7 +94,7 @@ export function Tweets() {
         <div className={style.wrapperRightSide}>
           <div className={style.imgDiv}>
             <img
-              src="https://www.beardresource.com/wp-content/uploads/2018/09/blonde-bearded-man-looking-straight-into-the-camera-696x418.jpg"
+              src={userPic}
               height={60}
               width={60}
               alt="user"
@@ -80,6 +112,8 @@ export function Tweets() {
                 </option>
               </select>
               <textarea
+                value={input}
+                onChange={handleInput}
                 className={style.textarea}
                 placeholder="What's happening?"
               />
@@ -121,6 +155,8 @@ export function Tweets() {
                 </IconButton>
               </div>
               <Button
+                onClick={handleTweet}
+                disabled={isDisable}
                 className={style.tweetBtn}
                 sx={{
                   fontSize: "1.2rem",

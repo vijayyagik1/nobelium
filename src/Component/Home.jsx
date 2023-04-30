@@ -14,29 +14,22 @@ import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
 
-
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    const currentUser = getCurrentUser()
-    setIsLoggedIn(currentUser.isLoggedIn)
-    console.log(isLoggedIn)
+    const currentUser = getCurrentUser();
+    setIsLoggedIn(currentUser.isLoggedIn);
+    console.log(isLoggedIn);
     if (isLoggedIn === true) {
       fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => localStorage.setItem("posts", JSON.stringify(data)))
+        .then((res) => res.json())
+        .then((data) => localStorage.setItem("posts", JSON.stringify(data)));
+    } else {
+      navigate("/signIn");
     }
-    else {
-      
-
-      navigate("/signIn")
-
-    }
-  },[isLoggedIn]);
-
+  }, [isLoggedIn]);
 
   let Right = [
     {
@@ -73,26 +66,33 @@ const Home = () => {
       country: "Trending in Sports",
       keyword: "#sachin",
       totalKeywords: "2000k Tweets",
-    }
+    },
   ];
 
   return (
     <div className={Styles.container}>
       <div className={Styles.leftDiv}>
         <LeftSideBar />
-        <TweetModel/>
+        <TweetModel />
       </div>
       <div className={Styles.centerDiv}>
         <HomeHeader />
-        <CreateTweet />
-
-        <MainComponent />
+        <div className={Styles.scroll}>
+          <MainComponent />
+        </div>
       </div>
       <div className={Styles.RightMain}>
-        <div><h3>What's Happening</h3></div>
+        <div>
+          <h3>What's Happening</h3>
+        </div>
         <div className={Styles.Content}>
           {Right.map((ele) => (
-            <RightSideBar Message={ele["country"]} id={ele.id} content={ele.keyword} count={ele.totalKeywords} />
+            <RightSideBar
+              Message={ele["country"]}
+              id={ele.id}
+              content={ele.keyword}
+              count={ele.totalKeywords}
+            />
           ))}
         </div>
         <button>Show More</button>

@@ -1,10 +1,9 @@
-
 .RightMain {
   /* border: 1px solid; */
   width: 21.875rem;
   background-color: whitesmoke;
   position: relative;
-  left: 12%;
+  left: 30%;
   border-radius: 3%;
   height: 30rem;
   display: flex;
@@ -12,7 +11,7 @@
   gap: 1.2rem;
 }
 
-.RightMain>div>h3 {
+.RightMain > div > h3 {
   position: relative;
   left: 1rem;
 }
@@ -23,27 +22,31 @@
   text-decoration: none;
   cursor: pointer;
   background-color: inherit;
-  color: #93C5FD;
+  color: #93c5fd;
   position: relative;
   left: 1.1rem;
 }
 
 .container {
   display: flex;
+}
+.leftDiv {
+  position: relative;
+  left: 20%;
+}
+.centerDiv {
+  position: relative;
+  left: 30%;
+  border: 1px darkgray;
+}
 
-}
-.leftDiv{
-    position: relative;
-    left: 20%;
-}
-.centerDiv{
-    position: relative;
-    left: 10%;
-    border: 1px darkgray;
-}
-
-.Content{
+.Content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.scroll {
+  overflow: scroll;
+  position: relative;
+  top: 10%;
 }

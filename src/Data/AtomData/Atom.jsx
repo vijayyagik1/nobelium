@@ -12,5 +12,8 @@ export const Tweet = atom({
     default:false
 })
 
-
+export const atomTweetCount = atom({
+    key: 'atomTweetCount',
+    default:0
+})
 
