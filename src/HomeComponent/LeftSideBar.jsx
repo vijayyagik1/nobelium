@@ -15,11 +15,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function LeftSideBar() {
+
   const [isTweet,setIsTweet] = useRecoilState(Tweet)
 
   const navigate = useNavigate()
+
   const [isVisible, setIsVisible] = useState(false);
-  const currentUser = getCurrentUser()
+  const currentUser = getCurrentUser();
+
 
 
   const logoutBtnVisible = ()=> {
@@ -29,6 +32,7 @@ setIsVisible(!isVisible);
   }
   function handleLogOut() {
     navigate("/logout")
+
   }
 
 
@@ -102,6 +106,7 @@ setIsVisible(!isVisible);
       </div>
 
       {/*Logout button user when am clicked then use logged out */}
+
 {/* Conflict here, please check on live server and resolve*/}
       {isVisible && (
         <div
@@ -128,6 +133,7 @@ setIsVisible(!isVisible);
 
 </div>
 
+
 {/* Conflict here, please check on live server and resolve*/}
       <div
         onClick={() => setIsVisible(!isVisible)}
@@ -140,8 +146,10 @@ setIsVisible(!isVisible);
           }}
         />
         <div className={style.userDetail}>
+
           <h5>{currentUser.name}</h5>
         <p>{currentUser.userName}</p>
+
         </div>
         <FiMoreHorizontal />
       </div>

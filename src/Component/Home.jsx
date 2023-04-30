@@ -1,5 +1,5 @@
 import LeftSideBar from "../HomeComponent/LeftSideBar";
-import React from "react";
+import React, { useState } from "react";
 import RightSideBar from "../HomeComponent/RightSideBar";
 import { useRecoilState } from "recoil";
 import Styles from "./Home.module.css";
@@ -13,6 +13,16 @@ import HomeHeader from "../HomeComponent/HomeHeader";
 import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
+
+
+
+import WhoFollow from "../HomeComponent/WhoFollow";
+
+import SearchBar from "../HomeComponent/SearchBar"
+
+
+
+
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
@@ -31,43 +41,7 @@ const Home = () => {
     }
   }, [isLoggedIn]);
 
-  let Right = [
-    {
-      id: 1,
-      isNotIntrested: false,
-      country: "Sports Trending",
-      keyword: "Gautam Gambhir",
-      totalKeywords: "8000k Tweets",
-    },
-    {
-      id: 2,
-      isNotIntrested: false,
-      country: "Trending in India",
-      keyword: "#Virat kohli",
-      totalKeywords: "6000k Tweets",
-    },
-    {
-      id: 3,
-      isNotIntrested: false,
-      country: "Trending in Sports",
-      keyword: "Telugu",
-      totalKeywords: "2560k Tweets",
-    },
-    {
-      id: 4,
-      isNotIntrested: true,
-      country: "Trending in Politics",
-      keyword: "#Pappu",
-      totalKeywords: "2000k Tweets",
-    },
-    {
-      id: 5,
-      isNotIntrested: false,
-      country: "Trending in Sports",
-      keyword: "#sachin",
-      totalKeywords: "2000k Tweets",
-    },
-  ];
+
 
   return (
     <div className={Styles.container}>
@@ -81,23 +55,31 @@ const Home = () => {
           <MainComponent />
         </div>
       </div>
-      <div className={Styles.RightMain}>
+
+      <div className={Styles.RMain}>
         <div>
-          <h3>What's Happening</h3>
+          <SearchBar />
+
         </div>
-        <div className={Styles.Content}>
-          {Right.map((ele) => (
-            <RightSideBar
-              Message={ele["country"]}
-              id={ele.id}
-              content={ele.keyword}
-              count={ele.totalKeywords}
-            />
-          ))}
-        </div>
-        <button>Show More</button>
+        <div className={Styles.RightMain}>
+          <div className={Styles.Content}>
+            <RightSideBar />
+          </div>
+       
+
+
+
       </div>
-    </div>
+       <div class={Styles.whoFollow}>
+
+      <WhoFollow/>
+       </div>
+
+      </div>
+      </div>
+
+    
+
   );
 };
 

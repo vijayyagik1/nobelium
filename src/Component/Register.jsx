@@ -20,12 +20,19 @@ const Register = () => {
     date: "",
     month: "",
     year: "",
-    isLoggedIn: false
+    isLoggedIn: false,
+    userName:""
   });
 
   function handleName(e) {
     const input = { ...data };
     input.name = e.target.value;
+    setData(input);
+  }
+
+  function handleUserName(e) {
+    const input = { ...data };
+    input.userName = e.target.value;
     setData(input);
   }
 
@@ -94,8 +101,10 @@ const Register = () => {
     }
 
     const users = getData();
+    const currentUser = users.find((local) => (local.email === data.email) || (local.userName == data.userName) );
     if (
       !data.name ||
+      !data.userName ||
       data.name == " " ||
       !data.email ||
       !data.password ||
@@ -107,24 +116,34 @@ const Register = () => {
       data.year == "Year"
     ) {
       alert("Please Fill All the deatails!!");
-    } else if (data.password.length < 8) {
-      alert("Password Should contains 8 letter");
-    } else if (
-      leapYear == false &&
-      data.month == "February" &&
-      data.date > 28
-    ) {
-      alert("Enter Valid date");
-    } else if (leapYear == true && data.month == "February" && data.date > 29) {
-      alert("Enter Valid date");
-    } else if (ValidMonth.includes(data.month) == false && data.date > 30) {
-      alert("Enter Valid date");
-    } else {
-      alert("registeration success");
-      users.push(data);
-      localStorage.setItem("users", JSON.stringify(users));
-      navigate("/signIn");
+    } 
+    else if(!currentUser){
+       if (data.password.length < 8) {
+        alert("Password Should contains 8 letter");
+      } else if (
+        leapYear == false &&
+        data.month == "February" &&
+        data.date > 28
+      ) {
+        alert("Enter Valid date");
+      } else if (leapYear == true && data.month == "February" && data.date > 29) {
+        alert("Enter Valid date");
+      } else if (ValidMonth.includes(data.month) == false && data.date > 30) {
+        alert("Enter Valid date");
+      } else {
+        alert("registeration success");
+        users.push(data);
+        localStorage.setItem("users", JSON.stringify(users));
+        navigate("/signIn");
+      }
     }
+    else if(currentUser.email == data.email){
+      alert("Email exists");
+    }
+    else if(currentUser.userName == data.userName){
+      alert("User Name exists")
+    }
+    
   }
 
   return (
@@ -149,6 +168,12 @@ const Register = () => {
             onChange={(e) => handleName(e)}
           />
           <TextField
+          id="outlined-basic"
+          label="UserName"
+          variant="outlined"
+          onChange={(e) => handleUserName(e)}
+        />
+          <TextField
             id="outlined-basic"
             type="email"
             label="Email"
@@ -162,7 +187,13 @@ const Register = () => {
             variant="outlined"
             onChange={(e) => handlePassword(e)}
           />
+          <div>
+          <div><h3>Date of Birth</h3>
+          <p style={{color:"darkGray", fontSize:"smaller"}}
+          >This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</p>
+          </div>
           <div className={styles.Calender}>
+            
             <select onChange={(e) => handleMonth(e)}>
               <option>Month</option>
               {Month.map((ele) => (
@@ -183,6 +214,7 @@ const Register = () => {
                 <option>{ele}</option>
               ))}
             </select>
+          </div>
           </div>
 
           <Button variant="contained" type="submit">

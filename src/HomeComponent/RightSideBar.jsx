@@ -1,52 +1,134 @@
 import React, { useState } from "react";
 import Styles from "./RightSideBar.module.css";
-import { Button, Popover, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { CgSmileSad } from "react-icons/cg";
+import WhoFollow from "./WhoFollow";
 
+export default function RightSideBar() {
+  const [Right, setRight] = useState([
+    {
+      id: "0",
+      isNotIntrested: false,
+      country: "Sports Trending",
+      keyword: "Gautam Gambhir",
+      totalKeywords: "8000k Tweets",
+      popUp: false,
+    },
+    {
+      id: "1",
+      isNotIntrested: false,
+      country: "Trending in India",
+      keyword: "#Virat kohli",
+      totalKeywords: "6000k Tweets",
+      popUp: false,
+    },
+    {
+      id: "2",
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "Telugu",
+      totalKeywords: "2560k Tweets",
+      popUp: false,
+    },
+    {
+      id: "3",
+      isNotIntrested: false,
+      country: "Trending in Politics",
+      keyword: "#Pappu",
+      totalKeywords: "2000k Tweets",
+      popUp: false,
+    },
+    {
+      id: "4",
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#sachin",
+      totalKeywords: "2000k Tweets",
+      popUp: false,
+    },
+  ]);
 
-export default function RightSideBar(props) {
-  const [isPopUp, setIsPopoUp] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  function openPopUp(e) {
-    setIsPopoUp(e.currentTarget);
+  function handleVisible(index) {
+    Right[index].popUp = !Right[index].popUp;
+    setIsVisible(true);
+  }
+
+  function handlediv(index) {
+    Right[index].popUp = false;
+    setIsVisible(Right[index].popUp);
+  }
+
+  function handleDelete(Index) {
+    let newArr = Right.filter((ele, index) => index !== Index);
+    setRight(newArr);
+    setIsVisible(false);
   }
 
   return (
     <div className={Styles.Main}>
-      <div className={Styles.Contents}>
-        <h4>{props.Message}</h4>
-        <strong>{props.content}</strong>
-        <br />
-        <span>{props.count}</span>
+      <div>
+        <h3>What's Happening</h3>
       </div>
-      <div className={Styles.butt1}>
-        <Button
-          color="secondary"
-          style={{ color: "solid-black" }}
-          onClick={openPopUp}
-        >
-          ...
-        </Button>
-        <Popover
-        sx={{position:"relative", left:"10px"}}
-          open={Boolean(isPopUp)}
-          anchorEl={isPopUp}
-          anchorOrigin={{
-            vertical: "left",
-            horizontal: "left",
-          }}
-          transformOrigin={{
-            vertical: "left",
-            horizontal: "left",
-          }}
-          onClose={()=>setIsPopoUp(null)}
-        >
-          <Typography 
-          sx={{color:"red"}}
-          variant="h6"> <span><CgSmileSad />Not Interested in this</span></Typography>
-          <Typography variant="h6"> <span><CgSmileSad />This trend is harmful or spammy</span></Typography>
-        </Popover>
-      </div>
+
+      {Right.map((ele, index) => (
+        <div key={ele.id} className={Styles.map}>
+          <div className={Styles.Contents}>
+            <h4>{ele.country}</h4>
+            <strong>{ele.keyword}</strong>
+            <br />
+            <span>{ele.totalKeywords}</span>
+          </div>
+          <div className={Styles.butt1}>
+            <Button
+              className={Styles.butt2}
+              key={ele.id}
+              color="secondary"
+              style={isVisible?{ color: "solid-black", zIndex: "-1" }:{}}
+              onClick={() => handleVisible(index)}
+            >
+              ...
+            </Button>
+            {isVisible == true && ele.popUp == true ? (
+              <div key={ele.id} className={Styles.wrapper}>
+                <div
+                  onClick={() => handlediv(index)}
+                  style={{
+                    backgroundColor: "transparent",
+                    position: "fixed",
+                    height: "5000px",
+                    width: "5000px",
+                    left: "-80rem",
+                    top: "0",
+                  }}
+                ></div>
+                <div
+                  onClick={() => handleDelete(index)}
+                  className={Styles.Pop}
+                  style={{ zIndex: "999999" }}
+                >
+                  <p key={index}>
+                    <CgSmileSad />
+                    {ele.popUp}
+                    Not Interested in this{" "}
+                  </p>
+
+                  <p key={ele.id}>
+                    <CgSmileSad />
+                    This Trend is harmful or spammy{" "}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              " "
+            )}
+          </div>
+        </div>
+      ))}
+      <button>Show More</button>
+
     </div>
+  
   );
 }
