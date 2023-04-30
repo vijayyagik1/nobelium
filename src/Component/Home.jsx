@@ -15,9 +15,11 @@ import TweetModel from "../HomeComponent/TweetModel";
 import { getCurrentUser } from "../services/utilities";
 
 
+
 import WhoFollow from "../HomeComponent/WhoFollow";
 
 import SearchBar from "../HomeComponent/SearchBar"
+
 
 
 
@@ -39,6 +41,8 @@ const Home = () => {
     }
   }, [isLoggedIn]);
 
+
+
   return (
     <div className={Styles.container}>
       <div className={Styles.leftDiv}>
@@ -47,19 +51,21 @@ const Home = () => {
       </div>
       <div className={Styles.centerDiv}>
         <HomeHeader />
-        <CreateTweet />
-
-        <MainComponent />
+        <div className={Styles.scroll}>
+          <MainComponent />
+        </div>
       </div>
+
       <div className={Styles.RMain}>
         <div>
           <SearchBar />
+
         </div>
         <div className={Styles.RightMain}>
           <div className={Styles.Content}>
             <RightSideBar />
           </div>
-        </div>
+       
 
 
 
