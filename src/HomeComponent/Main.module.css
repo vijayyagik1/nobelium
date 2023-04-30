@@ -48,7 +48,7 @@ border: 1px solid whitesmoke;
 }
 .post img{
     width: 80%;
-    max-height: 20rem;
+    height: 20rem;
     border-radius: 10px;
     position: relative;
     left: 2.5%;

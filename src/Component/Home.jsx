@@ -60,13 +60,16 @@ const Home = () => {
           <RightSideBar/>
         </div>
 
-        <button>Show More</button>
+      </div>
+       <div class={Styles.whoFollow}>
+
       <WhoFollow/>
+       </div>
+
+      </div>
       </div>
 
-      </div></div>
-
-    </div>
+    
   );
 };
 
