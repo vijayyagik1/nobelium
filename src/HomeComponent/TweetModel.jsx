@@ -40,7 +40,9 @@ export function Tweets() {
   const [input, setInput] = useState("")
   const [isDisable, setIsDisable] = useState(true)
   const [tweetCount, setTweetCount] = useRecoilState(atomTweetCount)
+  
   const posts = getPosts();
+
   function handleInput(e) {
     setInput(e.target.value);
     if (input) {

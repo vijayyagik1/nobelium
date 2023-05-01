@@ -27,9 +27,9 @@ export default function WhoFollow() {
       isFollowed: false
     },
     {
-      img: "https://xsgames.co/randomusers/assets/avatars/male/65.jpg",
-      name: "Utkarsh",
-      username: "@uttu",
+      img: "/UtkarshPic.png",
+      name: "Utkarsh" ,
+      username: "@uttu69",
       id: "4",
       
       isFollowed: false
@@ -58,7 +58,7 @@ export default function WhoFollow() {
         <div key={index} className={style.userDiv}>
           <img src={ele.img} />
           <div className={style.userDetail}>
-            <h5>{ele.name}</h5>
+            <h5>{ele.name=="Utkarsh"?<a target='_blank' href="https://www.instagram.com/_utkarsh_sharma_179/">Utkarsh</a>:ele.name}</h5>
             <p>{ele.username}</p>
           </div>
           <Button
