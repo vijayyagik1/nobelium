@@ -14,15 +14,9 @@ import TweetModel from "../HomeComponent/TweetModel";
 
 import { getCurrentUser } from "../services/utilities";
 
-
-
 import WhoFollow from "../HomeComponent/WhoFollow";
 
-import SearchBar from "../HomeComponent/SearchBar"
-
-
-
-
+import SearchBar from "../HomeComponent/SearchBar";
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isUserLoggedIn);
@@ -41,8 +35,6 @@ const Home = () => {
     }
   }, [isLoggedIn]);
 
-
-
   return (
     <div className={Styles.container}>
       <div className={Styles.leftDiv}>
@@ -59,7 +51,6 @@ const Home = () => {
       {/* <div className={Styles.RMain}>
         <div>
           <SearchBar />
-
         </div>
         <div className={Styles.RightMain}>
           <div className={Styles.Content}>
@@ -76,10 +67,14 @@ const Home = () => {
        </div>
 
       </div> */}
+
+        </div>
+        <div class={Styles.whoFollow}>
+          <WhoFollow />
+        </div>
+
       </div>
-
-    
-
+    </div>
   );
 };
 
