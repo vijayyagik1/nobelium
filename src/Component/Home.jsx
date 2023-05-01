@@ -7,15 +7,10 @@ import MainComponent from "../HomeComponent/MainComponent";
 import { isUserLoggedIn } from "../Data/AtomData/Atom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import CreateTweet from "../HomeComponent/CreateTweet";
 import HomeHeader from "../HomeComponent/HomeHeader";
-
 import TweetModel from "../HomeComponent/TweetModel";
-
 import { getCurrentUser } from "../services/utilities";
-
 import WhoFollow from "../HomeComponent/WhoFollow";
-
 import SearchBar from "../HomeComponent/SearchBar";
 
 const Home = () => {
