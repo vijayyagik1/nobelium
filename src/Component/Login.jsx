@@ -38,7 +38,7 @@ const Login = () => {
       alert("please Fill All the Data")
       return;
     }
-    const currentUser = userData.find((data) => data.email === email);
+    const currentUser = userData.find((data) => data.email === email || data.userName == email);
   
     if (!currentUser) {
       alert("User Not Found");
@@ -91,7 +91,7 @@ const Login = () => {
         <TextField
           id="outlined-basic"
 
-          label="Phone, email address, or username"
+          label="Email address, or username"
 
           variant="outlined"
           onChange={(e) => setEmail(e.target.value)}

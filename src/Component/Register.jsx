@@ -100,12 +100,17 @@ const Register = () => {
       leapYear = false;
     }
 
+    let Name = data.name;
+    Name = Name.trim();
+    let UserName = data.userName;
+    UserName  = UserName.trim();
+
     const users = getData();
     const currentUser = users.find((local) => (local.email === data.email) || (local.userName == data.userName) );
     if (
-      !data.name ||
-      !data.userName ||
-      data.name == " " ||
+      !Name||
+      !UserName ||
+      Name == " " ||
       !data.email ||
       !data.password ||
       !data.date ||

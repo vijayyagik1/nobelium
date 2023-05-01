@@ -7,39 +7,27 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { useRecoilState } from "recoil";
 import { Tweet } from "../Data/AtomData/Atom";
 import { Tweets } from "./TweetModel";
-import {leftSideIconData} from '../Data/AtomData/data'
+import { leftSideIconData } from "../Data/AtomData/data";
 import { getCurrentUser } from "../services/utilities";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 export default function LeftSideBar() {
+  const [isTweet, setIsTweet] = useRecoilState(Tweet);
 
-  const [isTweet,setIsTweet] = useRecoilState(Tweet)
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [isVisible, setIsVisible] = useState(false);
   const currentUser = getCurrentUser();
 
-
-
-  const logoutBtnVisible = ()=> {
-setIsVisible(!isVisible); 
-
-
-  }
+  const logoutBtnVisible = () => {
+    setIsVisible(!isVisible);
+  };
   function handleLogOut() {
-    navigate("/logout")
-
+    navigate("/logout");
   }
-
 
   return (
-    <div
-      className={style.mainContainer}
-    >
+    <div className={style.mainContainer}>
       <div className={style.sideBarBtnGroup}>
         <FaTwitter
           sx={{
@@ -85,7 +73,7 @@ setIsVisible(!isVisible);
         {/* {isTweet&&<Tweets/>} */}
 
         <Button
-        onClick={()=>setIsTweet(true)}
+          onClick={() => setIsTweet(true)}
           className={style.tweetBtn}
           sx={{
             fontSize: "1.2rem",
@@ -107,38 +95,19 @@ setIsVisible(!isVisible);
 
       {/*Logout button user when am clicked then use logged out */}
 
-{/* Conflict here, please check on live server and resolve*/}
-      {isVisible && (
-        <div
-          className={style.logoutPopup}
-        >
-          <hr />
-          <div>
-            <p>Add an existing account </p>
-          </div>
-          <div>
-            <p> Log out @username</p>
-          </div>
-        </div>
-      )}
-
-<div style={isVisible ? {}: {display: "none"}} className={style.logoutPopup}>
-<hr/>
-<div>
-<p>Add an existing account </p>
-</div>
-<div onClick={handleLogOut}>
-          <p > Log out {currentUser.email}</p>
-</div>
-
-</div>
-
-
-{/* Conflict here, please check on live server and resolve*/}
       <div
-        onClick={() => setIsVisible(!isVisible)}
-        className={style.userDiv}
+        style={isVisible ? {} : { display: "none" }}
+        className={style.logoutPopup}
       >
+        <hr />
+        <div>
+          <p>Add an existing account </p>
+        </div>
+        <div onClick={handleLogOut}>
+          <p> Log out @{currentUser.userName}</p>
+        </div>
+      </div>
+      <div onClick={() => setIsVisible(!isVisible)} className={style.userDiv}>
         <PermIdentityIcon
           sx={{
             height: "3rem",
@@ -146,10 +115,8 @@ setIsVisible(!isVisible);
           }}
         />
         <div className={style.userDetail}>
-
           <h5>{currentUser.name}</h5>
-        <p>{currentUser.userName}</p>
-
+          <p>{currentUser.userName}</p>
         </div>
         <FiMoreHorizontal />
       </div>
