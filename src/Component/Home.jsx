@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={Styles.RMain}>
+      {/* <div className={Styles.RMain}>
         <div>
           <SearchBar />
 
@@ -75,7 +75,7 @@ const Home = () => {
       <WhoFollow/>
        </div>
 
-      </div>
+      </div> */}
       </div>
 
     

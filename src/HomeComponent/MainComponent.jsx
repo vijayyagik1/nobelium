@@ -50,7 +50,8 @@ export default function MainComponent() {
             </div>
           </div>
           <div className={styles.post}>
-            <img src={user.postPic} />
+           <img src={user.postPic}/>
+            
           </div>
           <div className={styles.btnDiv}>
             <Button
