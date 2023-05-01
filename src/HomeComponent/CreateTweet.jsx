@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import style from "./CreateTweet.module.css";
 import { BiWorld } from "react-icons/bi";
 import { userPic } from "../Data/AtomData/data";
@@ -18,7 +18,7 @@ const CreateTweet = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDisable, setIsDisable] = useState(true)
   const posts = getPosts();
-  const inputRef = useRef(null)
+
   const currentUser = getCurrentUser()
   function handleInput(e) {
     setInput(e.target.value);
@@ -48,12 +48,7 @@ const CreateTweet = () => {
     posts.unshift(newPost)
     localStorage.setItem("posts", JSON.stringify(posts))
   }
-  function handleImgAdd(){
-    inputRef.current.click()
-  }
-  function handleImgChange(e) {
-    
-  }
+ 
   return (
     <div className={style.create}>
       <div className={style.create__first}>
@@ -98,8 +93,7 @@ const CreateTweet = () => {
       </div>
       <div className={style.create__second}>
         <div className={style.create__icons}>
-          <input onChange={handleImgChange} ref={inputRef} style={{display:"none"}} type="file" />
-          <AddPhotoAlternateOutlinedIcon onClick={handleImgAdd} className={style.ic} />
+          <AddPhotoAlternateOutlinedIcon className={style.ic} />
           <GifBoxOutlinedIcon className={style.ic} />
           <BallotOutlinedIcon className={style.ic} />
           <EmojiEmotionsOutlinedIcon className={style.ic} />

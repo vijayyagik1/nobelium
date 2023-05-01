@@ -48,7 +48,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={Styles.RMain}>
+      {/* <div className={Styles.RMain}>
         <div>
           <SearchBar />
         </div>
@@ -56,10 +56,23 @@ const Home = () => {
           <div className={Styles.Content}>
             <RightSideBar />
           </div>
+       
+
+
+
+      </div>
+       <div class={Styles.whoFollow}>
+
+      <WhoFollow/>
+       </div>
+
+      </div> */}
+
         </div>
         <div class={Styles.whoFollow}>
           <WhoFollow />
         </div>
+
       </div>
     </div>
   );
