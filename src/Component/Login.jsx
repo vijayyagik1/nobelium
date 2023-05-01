@@ -43,6 +43,9 @@ const Login = () => {
     if (!currentUser) {
       alert("User Not Found");
     }
+    else if (currentUser.password !== password) {
+      alert("Password is Incorrect");
+    }
     else if (currentUser.password === password) {
      
       swal("Login Successful!", "You have Successfully logged In!", "success");
