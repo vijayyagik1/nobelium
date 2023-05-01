@@ -21,32 +21,36 @@ const CreateTweet = () => {
 
   const currentUser = getCurrentUser()
   function handleInput(e) {
-    setInput(e.target.value);
+    setInput((e.target.value));
     if (input) {
       setIsDisable(false)
     }
     
   }
   function handleTweet() {
-    let id = Math.random()
-    id = Math.floor(id*80)
-    const newPost = {
-      id: id,
-      comments: 0,
-      likes: 0,
-      isLiked: false,
-      retweets: 0,
-      trending: 0,
-      profilePic: userPic,
-      postText: input,
-      name: currentUser.name,
-      userName:currentUser.userName
+    setInput(input.trim())
+    if (input) {
+      let id = Math.random()
+      id = Math.floor(id * 80)
+      const newPost = {
+        id: id,
+        comments: 0,
+        likes: 0,
+        isLiked: false,
+        retweets: 0,
+        trending: 0,
+        profilePic: userPic,
+        postText: input,
+        name: currentUser.name,
+        userName: currentUser.userName
+      }
+    
+      setIsDisable(true)
+      setInput("")
+      setTweetCount(tweetCount + 1)
+      posts.unshift(newPost)
+      localStorage.setItem("posts", JSON.stringify(posts))
     }
-    setIsDisable(true)
-    setInput("")
-    setTweetCount(tweetCount+1)
-    posts.unshift(newPost)
-    localStorage.setItem("posts", JSON.stringify(posts))
   }
  
   return (
