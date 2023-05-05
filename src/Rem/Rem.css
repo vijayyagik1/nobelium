@@ -1,0 +1,88 @@
+.app-container {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/476/809/desktop-wallpaper-new-cb-backgrounds-for-picsart-editing-zip-picsart-editing.jpg");
+  /* background-size: cover; */
+  /* background-position: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background-repeat: no-repeat; */
+  
+  /* font-family: Arial, sans-serif; */
+  /* background-color:aqua ; */
+  color:white;
+  /* animation-duration: inherit; */
+  background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color:black;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+input {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+ /* @media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  input {
+    font-size: 1rem;
+    margin-left: 0.25rem;
+    padding: 0.25rem;
+  }
+}  */
+.heading {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInDownBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -2000px, 0);
+  transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDownBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -2000px, 0);
+  transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
