@@ -17,3 +17,4 @@ export const atomTweetCount = atom({
     default:0
 })
 
+// new function
